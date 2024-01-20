@@ -1,5 +1,3 @@
-import { Routes, Route } from "react-router-dom";
-
 //Import Pages
 import IncomePage from "../mobile/pages/IncomePage";
 import CategoryPage from "../mobile/pages/CategoryPage";
