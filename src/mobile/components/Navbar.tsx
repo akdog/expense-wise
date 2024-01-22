@@ -11,21 +11,21 @@ const Navbar = () => {
   return (
     <Main>
       <div className="navbar-icons">
-        <FaChartPie size="40" />
-        <IoIosCard size="40" />
-        <FaPlus size="40" id="main-icon" />
-        <FaCalendarAlt size="40" />
-        <IoMdSettings size="40" />
+        <FaChartPie size="30" />
+        <IoIosCard size="30" />
+        <FaPlus size="30" id="main-icon" />
+        <FaCalendarAlt size="30" />
+        <IoMdSettings size="30" />
       </div>
     </Main>
   );
 };
 
 const Main = styled.div`
-  position: absolute;
+  position: sticky;
   bottom: 1%;
 
-  width: 90%;
+  width: 95%;
   margin: 0 auto;
 
   background: ${(props) => props.theme.colors.primary};
