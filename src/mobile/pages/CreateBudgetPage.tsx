@@ -1,12 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
-
-//Import Components
-import Button from "../components/Button";
 
 //Import Images
 import confetti from "../../assets/confetti.png";
 
 const CreateBudgetPage = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/total");
+  };
+
   return (
     <Main>
       <div className="text-container">
@@ -17,8 +21,12 @@ const CreateBudgetPage = () => {
         <h4>Follow your Progress regulary by checking your analytics</h4>
       </div>
       <div className="button-container">
-        <Button text="Budget analytics" />
-        <button id="view-analytics">View Analytics</button>
+        <button id="budget-analytics" onClick={handleNavigate}>
+          Budget analytics
+        </button>
+        <button id="view-analytics" onClick={handleNavigate}>
+          View Analytics
+        </button>
       </div>
     </Main>
   );
@@ -74,6 +82,16 @@ const Main = styled.div`
     gap: 1rem;
 
     width: 100%;
+
+    #budget-analytics {
+      width: 100%;
+      padding: 1rem 0rem;
+      border-radius: 10px;
+      border: none;
+      background: ${(props) => props.theme.colors.primary};
+      color: ${(props) => props.theme.colors.white};
+      font-size: 1.3rem;
+    }
 
     #view-analytics {
       width: 100%;

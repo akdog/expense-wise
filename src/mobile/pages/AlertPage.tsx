@@ -5,7 +5,11 @@ import Header from "../components/Header";
 import Text from "../components/Text";
 import ButtonC from "../components/ButtonC";
 
-const AlertPage = () => {
+type Props = {
+  pageNumberAsNumber: number;
+};
+
+const AlertPage = ({ pageNumberAsNumber }: Props) => {
   return (
     <Main>
       <Header />
@@ -20,7 +24,7 @@ const AlertPage = () => {
           <h3>Receive Alert</h3>
         </div>
       </div>
-      <ButtonC />
+      <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>
   );
 };

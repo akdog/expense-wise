@@ -6,7 +6,11 @@ import Header from "../components/Header";
 import Text from "../components/Text";
 import ButtonC from "../components/ButtonC";
 
-const BudgetPage = () => {
+type Props = {
+  pageNumberAsNumber: number;
+};
+
+const BudgetPage = ({ pageNumberAsNumber }: Props) => {
   const [number, setNumber] = useState<number>(25);
   return (
     <Main>
@@ -22,7 +26,7 @@ const BudgetPage = () => {
         </div>
         <input type="range" />
       </div>
-      <ButtonC />
+      <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>
   );
 };

@@ -6,7 +6,11 @@ import Header from "../components/Header";
 import Text from "../components/Text";
 import ButtonC from "../components/ButtonC";
 
-const IncomePage = () => {
+type Props = {
+  pageNumberAsNumber: number;
+};
+
+const IncomePage = ({ pageNumberAsNumber }: Props) => {
   const [number, setNumber] = useState<number>(25);
   return (
     <Main>
@@ -19,7 +23,7 @@ const IncomePage = () => {
         <h1>$</h1>
         <input type="number" value={number} />
       </div>
-      <ButtonC />
+      <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>
   );
 };

@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 //Import Icons
 import { IoStatsChart } from "react-icons/io5";
 import { IoMdArrowDropdown } from "react-icons/io";
@@ -6,10 +8,12 @@ import styled from "styled-components";
 const HomeStatsHeader = () => {
   return (
     <Main>
-      <div className="icon-container">
-        <IoStatsChart size="25" />
-        <h1 id="main-header">Statistics</h1>
-      </div>
+      <Link to="/statistics">
+        <div className="icon-container">
+          <IoStatsChart size="25" />
+          <h1 id="main-header">Statistics</h1>
+        </div>
+      </Link>
       <div className="date-container">
         <h1>This month</h1>
         <IoMdArrowDropdown size="25" />

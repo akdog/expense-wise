@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 //Import Icons
@@ -11,7 +12,9 @@ const PageHeader = ({ title }: Props) => {
   return (
     <Main>
       <div className="icon-container">
-        <MdOutlineKeyboardArrowLeft size="55" id="header-icon" />
+        <Link to="/home">
+          <MdOutlineKeyboardArrowLeft size="55" id="header-icon" />
+        </Link>
       </div>
       <div className="text-container">
         <h1>{title}</h1>

@@ -1,3 +1,5 @@
+import { Routes, Route, useParams } from "react-router-dom";
+
 //Import Pages
 import IncomePage from "../mobile/pages/IncomePage";
 import CategoryPage from "../mobile/pages/CategoryPage";
@@ -8,20 +10,47 @@ import TotalBudgetPage from "../mobile/pages/TotalBudgetPage";
 import HomePage from "../mobile/pages/HomePage";
 import StatisticsPage from "../mobile/pages/StatisticsPage";
 import CategoryStatePage from "../mobile/pages/CategoryStatePage";
+import GoalPage from "../mobile/pages/GoalPage";
+
+const IntroPages = () => {
+  const params = useParams();
+  const pageNumber = params ? Object.values(params)[0] : "1";
+  const pageNumberAsNumber = parseInt(pageNumber, 10);
+  console.log(pageNumberAsNumber);
+
+  return (
+    <Routes>
+      <Route
+        path="1"
+        element={<IncomePage pageNumberAsNumber={pageNumberAsNumber} />}
+      />
+      <Route
+        path="2"
+        element={<CategoryPage pageNumberAsNumber={pageNumberAsNumber} />}
+      />
+      <Route
+        path="3"
+        element={<BudgetPage pageNumberAsNumber={pageNumberAsNumber} />}
+      />
+      <Route
+        path="4"
+        element={<AlertPage pageNumberAsNumber={pageNumberAsNumber} />}
+      />
+      <Route path="5" element={<CreateBudgetPage />} />
+    </Routes>
+  );
+};
 
 const MobileApp = () => {
   return (
-    <>
-      <IncomePage />
-      <CategoryPage />
-      <BudgetPage />
-      <AlertPage />
-      <CreateBudgetPage />
-      <TotalBudgetPage />
-      <HomePage />
-      <StatisticsPage />
-      <CategoryStatePage />
-    </>
+    <Routes>
+      <Route path="/*" element={<IntroPages />} />
+      <Route path="/total" element={<TotalBudgetPage />} />
+      <Route path="/home" element={<HomePage />} />
+      <Route path="/statistics" element={<StatisticsPage />} />
+      <Route path="/category-state" element={<CategoryStatePage />} />
+      <Route path="/goal" element={<GoalPage />} />
+    </Routes>
   );
 };
 

@@ -1,11 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 type Props = {
   text: string;
+  pageNumber?: number;
 };
 
-const Button = ({ text }: Props) => {
-  return <ButtonStyled>{text}</ButtonStyled>;
+const Button = ({ text, pageNumber }: Props) => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    const nextPage = `/${pageNumber + 1}`;
+    navigate(nextPage);
+  };
+
+  return <ButtonStyled onClick={handleNavigate}>{text}</ButtonStyled>;
 };
 
 const ButtonStyled = styled.button`

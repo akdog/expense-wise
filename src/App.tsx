@@ -51,6 +51,10 @@ const GlobalStyle = createGlobalStyle`
   h1{
     color:${(props) => props.theme.colors.primary}
   }
+  a{
+    text-decoration:none;
+    color:${(props) => props.theme.colors.primary}
+  }
  
  
 `;

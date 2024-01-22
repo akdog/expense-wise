@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 //Import Icons
 import { RxCross1 } from "react-icons/rx";
 
@@ -10,7 +12,9 @@ const Header = ({ text }: Props) => {
     <header className="header">
       <RxCross1 size="25" />
       <h1>Monthly Budget</h1>
-      <h3>{text}</h3>
+      <Link to="/home">
+        <h3>{text}</h3>
+      </Link>
     </header>
   );
 };

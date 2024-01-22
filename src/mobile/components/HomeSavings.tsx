@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 import styled from "styled-components";
 
 //Import Icons
@@ -15,7 +17,9 @@ const HomeSavings = () => {
             <h5>Add your saving Goals</h5>
           </div>
         </div>
-        <FaPlus size="35" />
+        <Link to="/goal">
+          <FaPlus size="35" />
+        </Link>
       </div>
     </Main>
   );

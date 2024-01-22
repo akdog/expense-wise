@@ -6,7 +6,11 @@ import Header from "../components/Header";
 import Text from "../components/Text";
 import LimitCategory from "../components/LimitCategory";
 
-const CategoryPage = () => {
+type Props = {
+  pageNumberAsNumber: number;
+};
+
+const CategoryPage = ({ pageNumberAsNumber }: Props) => {
   return (
     <Main>
       <Header />
@@ -15,7 +19,7 @@ const CategoryPage = () => {
         text="We selected your top-5 expense categories last month. You can limit more categories"
       />
       <LimitCategory />
-      <ButtonC />
+      <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>
   );
 };
