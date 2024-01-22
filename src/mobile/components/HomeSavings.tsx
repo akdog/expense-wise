@@ -1,0 +1,71 @@
+import styled from "styled-components";
+
+//Import Icons
+import { TbPigMoney } from "react-icons/tb";
+import { FaPlus } from "react-icons/fa";
+
+const HomeSavings = () => {
+  return (
+    <Main>
+      <div className="savings-container">
+        <div className="savings-header">
+          <TbPigMoney size="40" />
+          <div className="savings-text">
+            <h3>My saving Goals</h3>
+            <h5>Add your saving Goals</h5>
+          </div>
+        </div>
+        <FaPlus size="35" />
+      </div>
+    </Main>
+  );
+};
+
+const Main = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  margin-top: 2.5rem;
+
+  svg {
+    color: ${(props) => props.theme.colors.lightblue};
+  }
+
+  .savings-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+
+    .savings-header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+
+      .savings-text {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        h3 {
+          font-weight: 800;
+          color: ${(props) => props.theme.colors.primary};
+        }
+        h5 {
+          font-weight: 700;
+          color: ${(props) => props.theme.colors.gray_light};
+        }
+      }
+    }
+  }
+`;
+
+export default HomeSavings;
