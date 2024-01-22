@@ -7,6 +7,7 @@ import CreateBudgetPage from "../mobile/pages/CreateBudgetPage";
 import TotalBudgetPage from "../mobile/pages/TotalBudgetPage";
 import HomePage from "../mobile/pages/HomePage";
 import StatisticsPage from "../mobile/pages/StatisticsPage";
+import CategoryStatePage from "../mobile/pages/CategoryStatePage";
 
 const MobileApp = () => {
   return (
@@ -19,6 +20,7 @@ const MobileApp = () => {
       <TotalBudgetPage />
       <HomePage />
       <StatisticsPage />
+      <CategoryStatePage />
     </>
   );
 };
