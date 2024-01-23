@@ -39,7 +39,7 @@ const Main = styled.header`
     justify-content: flex-start;
     align-items: center;
 
-    width: 8%;
+    width: 15%;
   }
 
   .text-container {

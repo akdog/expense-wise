@@ -6,6 +6,9 @@ import styled from "styled-components";
 import { TbPigMoney } from "react-icons/tb";
 import { FaPlus } from "react-icons/fa";
 
+//Import Components
+import SavedSavings from "./SavedSavings";
+
 const HomeSavings = () => {
   return (
     <Main>
@@ -21,6 +24,8 @@ const HomeSavings = () => {
           <FaPlus size="35" />
         </Link>
       </div>
+      <SavedSavings />
+      <SavedSavings />
     </Main>
   );
 };

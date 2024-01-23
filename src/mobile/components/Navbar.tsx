@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 //Import Icons
 import { FaChartPie } from "react-icons/fa";
@@ -11,11 +12,17 @@ const Navbar = () => {
   return (
     <Main>
       <div className="navbar-icons">
-        <FaChartPie size="30" />
+        <Link id="navbar-link" to="/home">
+          <FaChartPie size="30" />
+        </Link>
         <IoIosCard size="30" />
-        <FaPlus size="30" id="main-icon" />
+        <Link to="/transaction">
+          <FaPlus size="30" id="main-icon" />
+        </Link>
         <FaCalendarAlt size="30" />
-        <IoMdSettings size="30" />
+        <Link id="navbar-link" to="/settings">
+          <IoMdSettings size="30" />
+        </Link>
       </div>
     </Main>
   );
@@ -23,7 +30,7 @@ const Navbar = () => {
 
 const Main = styled.div`
   position: sticky;
-  bottom: 1%;
+  bottom: 2%;
 
   width: 95%;
   margin: 0 auto;

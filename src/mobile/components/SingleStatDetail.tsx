@@ -37,6 +37,10 @@ const Main = styled.div`
 
   width: 100%;
 
+  a {
+    width: 100%;
+  }
+
   .text-container {
     display: flex;
     justify-content: center;

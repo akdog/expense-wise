@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 //Import Components
 import SingleStatDetail from "./SingleStatDetail";
@@ -6,7 +7,9 @@ import SingleStatDetail from "./SingleStatDetail";
 const StatDetails = () => {
   return (
     <Main>
-      <SingleStatDetail transaction="10 Transactions" percentage="35%" />
+      <Link to="/category-state">
+        <SingleStatDetail transaction="10 Transactions" percentage="35%" />
+      </Link>
       <SingleStatDetail transaction="10 Transactions" percentage="35%" />
       <SingleStatDetail transaction="10 Transactions" percentage="35%" />
       <SingleStatDetail transaction="10 Transactions" percentage="35%" />
@@ -23,6 +26,10 @@ const Main = styled.div`
   gap: 2rem;
 
   width: 100%;
+
+  a {
+    width: 100%;
+  }
 `;
 
 export default StatDetails;
