@@ -6,9 +6,10 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 
 type Props = {
   title: string;
+  action?: string;
 };
 
-const PageHeader = ({ title }: Props) => {
+const PageHeader = ({ title, action }: Props) => {
   return (
     <Main>
       <div className="icon-container">
@@ -18,6 +19,9 @@ const PageHeader = ({ title }: Props) => {
       </div>
       <div className="text-container">
         <h1>{title}</h1>
+      </div>
+      <div className="action-container">
+        <h1>{action}</h1>
       </div>
     </Main>
   );
@@ -44,6 +48,14 @@ const Main = styled.header`
     align-items: center;
 
     width: 100%;
+  }
+
+  .action-container {
+    h1 {
+      color: ${(props) => props.theme.colors.lightblue};
+      font-size: 1.2rem;
+      font-weight: 500;
+    }
   }
 `;
 
