@@ -20,11 +20,6 @@ const Main = styled.div`
   justify-content: center;
   align-items: center;
   gap: 3rem;
-
-  padding: 1rem;
-
-  width: 95%;
-  margin: 0 auto;
 `;
 
 export default DesktopApp;

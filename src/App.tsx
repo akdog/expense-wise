@@ -8,6 +8,11 @@ import DesktopApp from "./pages/DesktopApp";
 //Import Theme
 import { theme } from "./theme";
 
+//type for GlobalStyle
+type GlobalStyleProps = {
+  isMobile: boolean;
+};
+
 function App() {
   const [isMobile, setIsMobile] = useState(
     window.matchMedia("(max-width: 768px)").matches
@@ -25,17 +30,19 @@ function App() {
     };
   }, []);
 
+  console.log(isMobile);
+
   return (
     <>
       <ThemeProvider theme={theme}>
-        <GlobalStyle />
+        <GlobalStyle isMobile={isMobile} />
         {isMobile ? <MobileApp /> : <DesktopApp />}
       </ThemeProvider>
     </>
   );
 }
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 
 
   *{
@@ -46,10 +53,12 @@ const GlobalStyle = createGlobalStyle`
 
   body{
     font-family: "Montserrat", sans-serif;
-    background:white;
+    background: ${(props) => (props.isMobile ? "#EFEFF1" : "#15152D")};    
+    color: ${(props) => (props.isMobile ? "" : "white")};
+
   }
   h1{
-    color:${(props) => props.theme.colors.primary}
+    color: ${(props) => (props.isMobile ? "" : "white")};
   }
   a{
     text-decoration:none;

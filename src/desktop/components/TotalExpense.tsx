@@ -1,15 +1,16 @@
 import styled from "styled-components";
+import PieChart from "./PieChart";
 
 const TotalExpense = () => {
   return (
     <Main>
       <div className="expense-header">
-        <h3>All Expense</h3>
-        <h4>This month</h4>
+        <h1>All Expenses</h1>
+        <h3>This month</h3>
       </div>
       <div className="expense-main">
         <div className="expense-graph">
-          <h2>Graph</h2>
+          <PieChart />
         </div>
         <div className="expense-info">
           <h3>Shopping</h3>
@@ -39,7 +40,12 @@ const Main = styled.div`
   flex-direction: column;
   gap: 2rem;
 
-  width: 20%;
+  width: 30%;
+
+  background: ${(props) => props.theme.Dcolors.contrast};
+
+  padding: 1rem;
+  border-radius: 20px;
 
   .expense-header {
     display: flex;
@@ -47,6 +53,16 @@ const Main = styled.div`
     align-items: center;
 
     width: 100%;
+
+    h1 {
+      font-size: 1.8rem;
+      font-weight: 500;
+    }
+    h3 {
+      font-weight: 600;
+      font-size: 0.8rem;
+      color: ${(props) => props.theme.colors.gray_light};
+    }
   }
 
   .expense-main {
@@ -64,6 +80,13 @@ const Main = styled.div`
       align-items: center;
 
       width: 100%;
+    }
+
+    .expense-graph {
+      width: 100%;
+      canvas {
+        width: 100%;
+      }
     }
   }
 `;

@@ -57,8 +57,10 @@ const Main = styled.nav`
   width: 15%;
   height: 100%;
 
+  background: ${(props) => props.theme.Dcolors.contrast};
+  padding: 1rem;
+
   #logo {
-    font-size: 2.2rem;
     font-weight: 500;
   }
 

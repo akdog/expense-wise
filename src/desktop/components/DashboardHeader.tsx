@@ -26,6 +26,8 @@ const Main = styled.div`
   justify-content: space-between;
   align-items: center;
 
+  padding: 1rem;
+
   .logo-container {
     h1 {
       font-weight: 500;
@@ -47,8 +49,12 @@ const Main = styled.div`
         padding: 0.5rem 0rem;
         width: 100%;
 
+        text-indent: 0.5rem;
+        color: white;
+
         border-radius: 10px;
         border: none;
+        background: ${(props) => props.theme.Dcolors.contrast};
       }
     }
 

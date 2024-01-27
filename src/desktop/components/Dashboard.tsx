@@ -14,16 +14,16 @@ const Dashboard = () => {
     <Main>
       <DashboardHeader />
       <div className="dashboard-main">
-        <div className="money-insight-main">
+        <div className="money-insight-main top">
           <MoneyInsights title="Total Balance" amount="$2.300" />
           <MoneyInsights title="Income" amount="$2.300" />
           <MoneyInsights title="Expenses" amount="$2.300" />
         </div>
-        <div className="money-insight-main">
+        <div className="money-insight-main middle">
           <TotalExpense />
           <TotalBalance />
         </div>
-        <div className="money-insight-main">
+        <div className="money-insight-main bottom">
           <SavingGoals />
           <TransactionHistory />
           <UsersCard />
@@ -38,7 +38,7 @@ const Main = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  gap: 3rem;
+  gap: 1rem;
 
   width: 100%;
   height: 100%;
@@ -48,17 +48,27 @@ const Main = styled.div`
     justify-content: flex-start;
     align-items: flex-start;
     flex-direction: column;
-    gap: 6rem;
+    gap: 2rem;
 
     width: 100%;
 
     .money-insight-main {
       display: flex;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
-      gap: 3rem;
+      gap: 2rem;
 
       width: 100%;
+    }
+    .middle {
+      width: 96%;
+      margin: 0 auto;
+    }
+    .bottom {
+      width: 92%;
+      margin: 0 auto;
+
+      margin-bottom: 2rem;
     }
   }
 `;

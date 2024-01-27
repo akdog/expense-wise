@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import BarGraph from "./BarGraph";
 
 type Props = {
   title: string;
@@ -13,7 +14,9 @@ const MoneyInsights = ({ title, amount }: Props) => {
         <h3>This Month</h3>
       </div>
       <h1>{amount}</h1>
-      <h1>Graph</h1>
+      <div className="graph-container">
+        <BarGraph />
+      </div>
     </Main>
   );
 };
@@ -23,9 +26,14 @@ const Main = styled.div`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1rem;
 
   width: 30%;
+
+  padding: 0.8rem;
+
+  background: ${(props) => props.theme.Dcolors.contrast};
+  border-radius: 20px;
 
   .money-info-header {
     display: flex;
@@ -35,13 +43,21 @@ const Main = styled.div`
     width: 100%;
 
     h1 {
-      font-weight: 600;
+      font-size: 1.8rem;
+      font-weight: 500;
     }
 
     h3 {
       font-weight: 600;
       font-size: 0.8rem;
       color: ${(props) => props.theme.colors.gray_light};
+    }
+  }
+
+  .graph-container {
+    width: 100%;
+    canvas {
+      width: 100%;
     }
   }
 `;

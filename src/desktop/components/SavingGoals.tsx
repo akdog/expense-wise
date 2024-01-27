@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import HorizontalBarGraph from "./HorizontalBarGraph";
 
 const SavingGoals = () => {
   return (
@@ -13,6 +14,9 @@ const SavingGoals = () => {
           <h4>This Week</h4>
         </div>
       </div>
+      <div className="saving-graph">
+        <HorizontalBarGraph />
+      </div>
     </Main>
   );
 };
@@ -25,6 +29,10 @@ const Main = styled.div`
   width: 50%;
   height: 100%;
 
+  background: ${(props) => props.theme.Dcolors.contrast};
+  padding: 1rem;
+  border-radius: 20px;
+
   .saving-goals-header {
     display: flex;
     justify-content: space-between;
@@ -32,12 +40,23 @@ const Main = styled.div`
 
     width: 100%;
 
+    .saving-header {
+      h1 {
+        font-size: 1.8rem;
+        font-weight: 500;
+      }
+    }
+
     .saving-explanation {
       display: flex;
       justify-content: center;
       align-items: center;
       gap: 1rem;
     }
+  }
+
+  .saving-graph {
+    width: 100%;
   }
 `;
 
