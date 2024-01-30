@@ -4,17 +4,24 @@ import styled from "styled-components";
 type Props = {
   text: string;
   pageNumber?: number;
+  type: string;
 };
 
-const Button = ({ text, pageNumber }: Props) => {
+const Button = ({ text, pageNumber, type }: Props) => {
   const navigate = useNavigate();
 
-  const handleNavigate = () => {
+  const handleNavigate = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+
     const nextPage = `/${pageNumber + 1}`;
     navigate(nextPage);
   };
 
-  return <ButtonStyled onClick={handleNavigate}>{text}</ButtonStyled>;
+  return (
+    <ButtonStyled type={type} onClick={handleNavigate}>
+      {text}
+    </ButtonStyled>
+  );
 };
 
 const ButtonStyled = styled.button`

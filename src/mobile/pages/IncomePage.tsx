@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 //Import Components
@@ -6,14 +6,34 @@ import Header from "../components/Header";
 import Text from "../components/Text";
 import ButtonC from "../components/ButtonC";
 
+//Import Redux
+import { useDispatch } from "react-redux";
+import { getStats } from "../../state/Income/incomeSlice";
+
 type Props = {
   pageNumberAsNumber: number;
 };
 
 const IncomePage = ({ pageNumberAsNumber }: Props) => {
-  const [number, setNumber] = useState<number>(25);
+  const [income, setIncome] = useState<number>(0);
+
+  const dispatch = useDispatch();
+
+  const handleIncome = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setIncome((prevIncome) => Number(e.target.value));
+  };
+
+  useEffect(() => {
+    dispatch(getStats(income));
+  }, [dispatch, income]);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    setIncome(0);
+  };
+
   return (
-    <Main>
+    <Main onSubmit={handleSubmit}>
       <Header />
       <Text
         title="Whats your income?"
@@ -21,14 +41,14 @@ const IncomePage = ({ pageNumberAsNumber }: Props) => {
       />
       <div className="input-container">
         <h1>$</h1>
-        <input type="number" value={number} />
+        <input type="number" value={income} onChange={handleIncome} />
       </div>
       <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>
   );
 };
 
-const Main = styled.div`
+const Main = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;

@@ -30,8 +30,6 @@ function App() {
     };
   }, []);
 
-  console.log(isMobile);
-
   return (
     <>
       <ThemeProvider theme={theme}>

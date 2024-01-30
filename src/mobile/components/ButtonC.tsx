@@ -12,7 +12,7 @@ const ButtonC = ({ pageNumberAsNumber }: Props) => {
   return (
     <div className="button-container">
       <FaLongArrowAltRight color="white" size="25" />
-      <Button text="Next" pageNumber={pageNumberAsNumber} />
+      <Button type="submit" text="Next" pageNumber={pageNumberAsNumber} />
     </div>
   );
 };

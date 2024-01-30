@@ -6,13 +6,19 @@ import Header from "../components/Header";
 import Text from "../components/Text";
 import LimitCategory from "../components/LimitCategory";
 
+//Import Redux
+
 type Props = {
   pageNumberAsNumber: number;
 };
 
 const CategoryPage = ({ pageNumberAsNumber }: Props) => {
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+  };
+
   return (
-    <Main>
+    <Main onSubmit={handleSubmit}>
       <Header />
       <Text
         title="You may set some expense limits for each catgory"
@@ -24,7 +30,7 @@ const CategoryPage = ({ pageNumberAsNumber }: Props) => {
   );
 };
 
-const Main = styled.div`
+const Main = styled.form`
   display: flex;
   justify-content: center;
   align-items: center;

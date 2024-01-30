@@ -15,12 +15,8 @@ export const data = {
   datasets: [
     {
       label: "$ Amount",
-      data: [12, 19, 3],
-      backgroundColor: [
-        "rgba(255, 99, 132, 0.5)",
-        "rgba(54, 162, 235, 0.5)",
-        "rgba(255, 206, 86, 0.5)",
-      ],
+      data: [12, 19, 15],
+      backgroundColor: ["#CF3ACC", "#7D4CF6", "#0057C2"],
       borderWidth: 1,
     },
   ],

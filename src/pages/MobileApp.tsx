@@ -19,7 +19,6 @@ const IntroPages = () => {
   const params = useParams();
   const pageNumber = params ? Object.values(params)[0] : "1";
   const pageNumberAsNumber = parseInt(pageNumber, 10);
-  console.log(pageNumberAsNumber);
 
   return (
     <Routes>

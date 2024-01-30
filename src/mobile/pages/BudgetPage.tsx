@@ -5,6 +5,8 @@ import styled from "styled-components";
 import Header from "../components/Header";
 import Text from "../components/Text";
 import ButtonC from "../components/ButtonC";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
 
 type Props = {
   pageNumberAsNumber: number;
@@ -12,6 +14,10 @@ type Props = {
 
 const BudgetPage = ({ pageNumberAsNumber }: Props) => {
   const [number, setNumber] = useState<number>(25);
+
+  const state = useSelector((state: RootState) => state.income);
+  console.log(state.expenseLimit);
+
   return (
     <Main>
       <Header />

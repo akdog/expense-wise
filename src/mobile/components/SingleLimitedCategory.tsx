@@ -1,8 +1,29 @@
+import { useEffect, useState } from "react";
+
 //Import Icons
 import { MdFastfood } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
+//Import Redux
+import { RootState } from "../../state/store";
+import { handleLimit } from "../../state/Income/incomeSlice";
+
 const SingleLimiteCategory = () => {
+  const [expense, setExpense] = useState(0);
+
+  const state = useSelector((state: RootState) => state.income.expenseLimit);
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(handleLimit(expense));
+  }, [dispatch, expense]);
+
+  const handleExpense = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setExpense(Number(e.target.value));
+  };
+
   return (
     <Main>
       <div className="icon-container">
@@ -12,7 +33,7 @@ const SingleLimiteCategory = () => {
         <h3>Eating</h3>
       </div>
       <div className="price-container">
-        <h3>$1.200.00</h3>
+        <input value={expense} onChange={handleExpense} />
       </div>
     </Main>
   );

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ReGraph from "./ReGraph";
 import BarGraph from "./BarGraph";
 
 type Props = {
@@ -28,9 +29,9 @@ const Main = styled.div`
   flex-direction: column;
   gap: 1rem;
 
-  width: 30%;
-
   padding: 0.8rem;
+
+  width: 30%;
 
   background: ${(props) => props.theme.Dcolors.contrast};
   border-radius: 20px;
@@ -56,9 +57,6 @@ const Main = styled.div`
 
   .graph-container {
     width: 100%;
-    canvas {
-      width: 100%;
-    }
   }
 `;
 

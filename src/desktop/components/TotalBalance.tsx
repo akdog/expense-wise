@@ -27,7 +27,6 @@ const Main = styled.div`
   align-items: center;
   flex-direction: column;
   width: 65%;
-  height: 100%;
 
   background: ${(props) => props.theme.Dcolors.contrast};
   border-radius: 20px;

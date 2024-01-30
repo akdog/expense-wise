@@ -17,7 +17,7 @@ const data = {
     {
       label: "January",
       data: [3, 9, 12],
-      backgroundColor: "aqua",
+      backgroundColor: "#0057C2",
       borderColor: "black",
       borderWidth: 1,
       borderRadius: 10,

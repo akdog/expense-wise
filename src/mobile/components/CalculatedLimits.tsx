@@ -5,8 +5,12 @@ import SingleLimiteCategory from "../components/SingleLimitedCategory";
 
 //Import Icons
 import { FaPlus } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
 
 const CalculatedLimits = () => {
+  const state = useSelector((state: RootState) => state.income);
+
   return (
     <Main>
       <div className="limited-header">

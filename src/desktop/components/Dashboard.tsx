@@ -61,6 +61,10 @@ const Main = styled.div`
       width: 100%;
     }
     .middle {
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+
       width: 96%;
       margin: 0 auto;
     }

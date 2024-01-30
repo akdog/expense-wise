@@ -17,12 +17,12 @@ const data = {
     {
       label: "January",
       data: [3, 9, 12],
-      backgroundColor: "aqua",
+      backgroundColor: "#CF3ACC",
       borderColor: "black",
       borderWidth: 1,
       borderRadius: 10,
       borderSkipped: false,
-      barThickness: 15,
+      barThickness: 20,
     },
   ],
 };

@@ -10,7 +10,6 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 import { faker } from "@faker-js/faker";
-import styled from "styled-components";
 
 ChartJS.register(
   CategoryScale,
@@ -43,28 +42,14 @@ export const data = {
     {
       label: "Dataset 1",
       data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: "#CF3ACC",
+      borderColor: "rgb(255, 99, 132)",
       backgroundColor: "rgba(255, 99, 132, 0.5)",
-    },
-    {
-      label: "Dataset 2",
-      data: labels.map(() => faker.datatype.number({ min: -1000, max: 1000 })),
-      borderColor: "#0057C2",
-      backgroundColor: "rgba(53, 162, 235, 0.5)",
     },
   ],
 };
 
-const LineGraph = () => {
-  return (
-    <Main>
-      <Line options={options} data={data} />
-    </Main>
-  );
+const SingleLineGraph = () => {
+  return <Line options={options} data={data} />;
 };
 
-const Main = styled.div`
-  width: 100%;
-`;
-
-export default LineGraph;
+export default SingleLineGraph;

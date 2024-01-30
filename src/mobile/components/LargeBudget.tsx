@@ -2,13 +2,17 @@ import styled from "styled-components";
 
 //Import Icons
 import { FaMoneyBillWave } from "react-icons/fa";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
 
 const LargeBudget = () => {
+  const state = useSelector((state: RootState) => state.income);
+
   return (
     <Main>
       <div className="budget-header">
         <FaMoneyBillWave size="35" />
-        <h1>Total Budget</h1>
+        <h1>Total Budget:{state.income}</h1>
       </div>
       <div className="main-budget">
         <h2>$7.320</h2>
