@@ -8,7 +8,7 @@ import ButtonC from "../components/ButtonC";
 
 //Import Redux
 import { useDispatch } from "react-redux";
-import { getStats } from "../../state/Income/incomeSlice";
+import { handleIncome } from "../../state/Income/incomeSlice";
 
 type Props = {
   pageNumberAsNumber: number;
@@ -19,12 +19,12 @@ const IncomePage = ({ pageNumberAsNumber }: Props) => {
 
   const dispatch = useDispatch();
 
-  const handleIncome = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleIncomeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setIncome((prevIncome) => Number(e.target.value));
   };
 
   useEffect(() => {
-    dispatch(getStats(income));
+    dispatch(handleIncome(income));
   }, [dispatch, income]);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -41,7 +41,7 @@ const IncomePage = ({ pageNumberAsNumber }: Props) => {
       />
       <div className="input-container">
         <h1>$</h1>
-        <input type="number" value={income} onChange={handleIncome} />
+        <input type="number" value={income} onChange={handleIncomeValue} />
       </div>
       <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>

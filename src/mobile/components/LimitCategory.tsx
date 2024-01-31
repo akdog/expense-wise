@@ -14,7 +14,31 @@ import SingleLimitedCategory from "./SingleLimitedCategory";
 const LimitCategory = () => {
   return (
     <Main>
-      <SingleLimitedCategory />
+      <SingleLimitedCategory
+        categoryName="Eating Out"
+        icon={<MdFastfood size={25} />}
+        category="eatingOut"
+      />
+      <SingleLimitedCategory
+        categoryName="Groceries"
+        icon={<MdShoppingCart size={25} />}
+        category="groceries"
+      />{" "}
+      <SingleLimitedCategory
+        categoryName="Electronics"
+        icon={<MdVideogameAsset size={25} />}
+        category="electronics"
+      />{" "}
+      <SingleLimitedCategory
+        categoryName="Clothes"
+        icon={<TbJacket size={25} />}
+        category="clothes"
+      />{" "}
+      <SingleLimitedCategory
+        categoryName="Education"
+        icon={<FaUniversity size={25} />}
+        category="education"
+      />
       <div className="add-category">
         <FaPlus size="20" />
         <h3>Add Category</h3>

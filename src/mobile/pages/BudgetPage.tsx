@@ -1,36 +1,59 @@
-import { useState } from "react";
-import styled from "styled-components";
+import { useEffect, useState } from "react";
 
-//Import Components
+import styled from "styled-components";
 import Header from "../components/Header";
 import Text from "../components/Text";
 import ButtonC from "../components/ButtonC";
-import { useSelector } from "react-redux";
+
+//Import Redux
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../state/store";
+import { handleBudget } from "../../state/Income/incomeSlice";
 
 type Props = {
   pageNumberAsNumber: number;
 };
 
 const BudgetPage = ({ pageNumberAsNumber }: Props) => {
-  const [number, setNumber] = useState<number>(25);
+  const income = useSelector((state: RootState) => state.income.income);
+  const [budgetPercentage, setBudgetPercentage] = useState<number>(50);
 
-  const state = useSelector((state: RootState) => state.income);
-  console.log(state.expenseLimit);
+  const dispatch = useDispatch();
+
+  const handleBudgetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setBudgetPercentage(Number(e.target.value));
+  };
+
+  useEffect(() => {
+    const calculatedBudget = (income * budgetPercentage) / 100;
+    dispatch(handleBudget(calculatedBudget));
+  }, [dispatch, income, budgetPercentage]);
 
   return (
     <Main>
       <Header />
       <Text
         title="How much do you want to spend monthly?"
-        text="We suggest that your monthly expenses do not exceed 80% of your income, but you can set your own limits."
+        text="We suggest that your monthly expenses do not exceed a certain percentage of your income, but you can set your own limits."
       />
       <div className="input-container">
         <div className="number-input">
           <h1>$</h1>
-          <input type="number" value={number} />
+          <input
+            type="number"
+            value={(income * budgetPercentage) / 100}
+            readOnly
+          />
         </div>
-        <input type="range" />
+        <input
+          type="range"
+          min="0"
+          max="100"
+          step="1"
+          value={budgetPercentage}
+          onChange={handleBudgetChange}
+        />
+        <p>{`${budgetPercentage}% of your income`}</p>
       </div>
       <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
     </Main>

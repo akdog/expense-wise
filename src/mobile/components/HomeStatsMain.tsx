@@ -1,19 +1,25 @@
 import styled from "styled-components";
 import HomeStatsExpend from "./HomeStatsExpend";
 
+//Import Redux
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
+
 const HomeStatsMain = () => {
+  const state = useSelector((state: RootState) => state.income);
+
   return (
     <Main>
       <HomeStatsExpend
         title="Expense"
-        amount="-$6.800"
+        amount="-6.800"
         className="expense-container"
         svgID="expense-icon"
         insideClassName="expense"
       />
       <HomeStatsExpend
         title="Income"
-        amount="$6.800"
+        amount={state.income}
         className="income-container"
         svgID="income-icon"
         insideClassName="income"

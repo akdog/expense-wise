@@ -12,14 +12,14 @@ const LargeBudget = () => {
     <Main>
       <div className="budget-header">
         <FaMoneyBillWave size="35" />
-        <h1>Total Budget:{state.income}</h1>
+        <h1>Total Budget</h1>
       </div>
       <div className="main-budget">
-        <h2>$7.320</h2>
+        <h2>${state.monthlyBudget}</h2>
         <input type="range" />
         <div className="spend-container">
-          <h5 id="spend">Spend $5.234 80%</h5>
-          <h5 id="left">Left $2.123 20%</h5>
+          <h5 id="spend">Spend $0 0%</h5>
+          <h5 id="left">Left ${state.monthlyBudget} 100%</h5>
         </div>
       </div>
     </Main>

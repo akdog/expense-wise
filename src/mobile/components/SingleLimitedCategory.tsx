@@ -1,24 +1,24 @@
 import { useEffect, useState } from "react";
-
-//Import Icons
-import { MdFastfood } from "react-icons/md";
-import { useDispatch, useSelector } from "react-redux";
 import styled from "styled-components";
 
 //Import Redux
-import { RootState } from "../../state/store";
 import { handleLimit } from "../../state/Income/incomeSlice";
+import { useDispatch } from "react-redux";
 
-const SingleLimiteCategory = () => {
+type Props = {
+  categoryName: string;
+  icon: React.ReactNode;
+  category: string;
+};
+
+const SingleLimiteCategory = ({ categoryName, icon, category }: Props) => {
   const [expense, setExpense] = useState(0);
-
-  const state = useSelector((state: RootState) => state.income.expenseLimit);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(handleLimit(expense));
-  }, [dispatch, expense]);
+    dispatch(handleLimit({ category, limit: expense }));
+  }, [dispatch, category, expense]);
 
   const handleExpense = (e: React.ChangeEvent<HTMLInputElement>) => {
     setExpense(Number(e.target.value));
@@ -27,10 +27,8 @@ const SingleLimiteCategory = () => {
   return (
     <Main>
       <div className="icon-container">
-        <div className="svg-container">
-          <MdFastfood size="25" />
-        </div>
-        <h3>Eating</h3>
+        <div className="svg-container">{icon}</div>
+        <h3>{categoryName}</h3>
       </div>
       <div className="price-container">
         <input value={expense} onChange={handleExpense} />
@@ -47,8 +45,21 @@ const Main = styled.div`
   width: 100%;
 
   .price-container {
-    h3 {
+    width: 20%;
+
+    input {
       color: ${(props) => props.theme.colors.primary};
+      background: none;
+      border: none;
+      outline: none;
+      font-size: 1rem;
+
+      width: 100%;
+      margin: 0 auto;
+
+      padding: 1rem 0rem;
+
+      text-indent: 1.2rem;
     }
   }
 

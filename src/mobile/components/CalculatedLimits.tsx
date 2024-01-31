@@ -1,23 +1,19 @@
 import styled from "styled-components";
 
 //Import Componetns
-import SingleLimiteCategory from "../components/SingleLimitedCategory";
+import FixedLimiteCategory from "./FixedLimiteCategory";
 
 //Import Icons
 import { FaPlus } from "react-icons/fa";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state/store";
 
 const CalculatedLimits = () => {
-  const state = useSelector((state: RootState) => state.income);
-
   return (
     <Main>
       <div className="limited-header">
         <h1>Limited Categories</h1>
         <FaPlus size="25" />
       </div>
-      <SingleLimiteCategory />
+      <FixedLimiteCategory />
     </Main>
   );
 };

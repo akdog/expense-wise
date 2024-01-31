@@ -6,9 +6,13 @@ import { motion } from "framer-motion";
 import { SlCalender } from "react-icons/sl";
 
 const Settings = () => {
-  const [isOn, setIsOn] = useState<boolean>(false);
+  const [startingOn, setStartingOn] = useState<boolean>(false);
+  const [includePayments, setIncludePayments] = useState<boolean>(false);
+  const [receiveAlerts, setReceiveAlerts] = useState<boolean>(false);
 
-  const toggleSwitch = () => setIsOn(!isOn);
+  const toggleStartingOn = () => setStartingOn(!startingOn);
+  const toggleIncludePayments = () => setIncludePayments(!includePayments);
+  const toggleReceiveAlerts = () => setReceiveAlerts(!receiveAlerts);
 
   const spring = {
     type: "spring",
@@ -30,7 +34,11 @@ const Settings = () => {
       </div>
       <div className="single-settings">
         <div className="icon-container">
-          <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
+          <div
+            className="switch"
+            data-isOn={includePayments}
+            onClick={toggleIncludePayments}
+          >
             <motion.div className="handle" layout transition={spring} />
           </div>
           <h3>Including upcomming Payments </h3>
@@ -39,7 +47,11 @@ const Settings = () => {
       </div>
       <div className="single-settings">
         <div className="icon-container">
-          <div className="switch" data-isOn={isOn} onClick={toggleSwitch}>
+          <div
+            className="switch"
+            data-isOn={receiveAlerts}
+            onClick={toggleReceiveAlerts}
+          >
             <motion.div className="handle" layout transition={spring} />
           </div>
           <h3>Receive Alerts</h3>

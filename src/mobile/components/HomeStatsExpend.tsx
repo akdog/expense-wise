@@ -3,7 +3,7 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 type Props = {
   title: string;
-  amount: string;
+  amount: string | number;
   className: string;
   svgID: string;
   insideClassName: string;
@@ -20,7 +20,7 @@ const HomeStatsExpend = ({
     <div className={className}>
       <h3>{title}</h3>
       <div className={insideClassName}>
-        <h2>{amount}</h2>
+        <h2>${amount}</h2>
         <MdKeyboardArrowRight id={svgID} size="30" />
       </div>
     </div>
