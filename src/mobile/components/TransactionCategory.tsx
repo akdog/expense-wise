@@ -4,9 +4,13 @@ import styled from "styled-components";
 import { IoIosArrowForward } from "react-icons/io";
 import { GrStatusUnknown } from "react-icons/gr";
 
-const TransactionCategory = () => {
+type Props = {
+  handleModal: () => void;
+};
+
+const TransactionCategory = ({ handleModal }: Props) => {
   return (
-    <Main>
+    <Main onClick={handleModal}>
       <div className="icon-container">
         <GrStatusUnknown size="35" />
         <h3>Uncategorized transactions</h3>

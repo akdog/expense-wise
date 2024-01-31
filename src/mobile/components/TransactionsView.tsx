@@ -9,13 +9,19 @@ import { MdEditCalendar } from "react-icons/md";
 import { TbNotes } from "react-icons/tb";
 import { GrStatusUnknown } from "react-icons/gr";
 
-const TransactionsView = () => {
+type Props = {
+  isModal: boolean;
+  setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
+};
+
+const TransactionsView = ({ isModal, setIsModal }: Props) => {
+  const handleModal = () => {
+    setIsModal(!isModal);
+  };
+
   return (
     <Main>
-      <TransactionCategory />
-      <TransactionCategory />
-      <TransactionCategory />
-      <TransactionCategory />
+      <TransactionCategory handleModal={handleModal} />
     </Main>
   );
 };

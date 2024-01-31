@@ -6,11 +6,11 @@ import { IoIosCard } from "react-icons/io";
 const TransactionHeader = () => {
   return (
     <Main>
-      <h3>United24</h3>
-      <h2>$100</h2>
+      <h3>Deutsche Bank</h3>
+      <input placeholder="100$" />
       <div className="bank-details">
         <IoIosCard size="25" />
-        <h3>UnitedPrivateBank</h3>
+        <h3>Deutsche-Bank</h3>
       </div>
       <p>27 March 2023 17:15</p>
     </Main>
@@ -28,6 +28,20 @@ const Main = styled.div`
 
   h3 {
     color: ${(props) => props.theme.colors.primary};
+  }
+
+  input {
+    width: 40%;
+    padding: 1.5rem 0rem;
+
+    color: ${(props) => props.theme.colors.primary};
+    font-size: 1.6rem;
+
+    border: none;
+    outline: none;
+    background: none;
+
+    text-indent: 25%;
   }
 
   h2 {

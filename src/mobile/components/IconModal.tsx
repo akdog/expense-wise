@@ -1,11 +1,27 @@
-//Import Icons
-import { MdEditCalendar } from "react-icons/md";
+//Import Redux
+import { useDispatch } from "react-redux";
+import { handleTransaction } from "../../state/transaction/transactionSlice";
 
-const IconModal = () => {
+type Props = {
+  icon: React.ReactNode;
+  iconType: string;
+  category: string;
+};
+
+const IconModal = ({ icon, category, iconType }: Props) => {
+  const dispatch = useDispatch();
+
+  const handleTransactionDetails = (iconType: string, category: string) => {
+    dispatch(handleTransaction({ category, iconType }));
+  };
+
   return (
-    <div className="modal-icon">
-      <MdEditCalendar size="35" />
-      <h5>Eating Out</h5>
+    <div
+      className="modal-icon"
+      onClick={() => handleTransactionDetails(category, iconType)}
+    >
+      {icon}
+      <h5>{category}</h5>
     </div>
   );
 };
