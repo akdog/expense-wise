@@ -21,7 +21,7 @@ const PageHeader = ({ title, action }: Props) => {
         <h1>{title}</h1>
       </div>
       <div className="action-container">
-        <h1>{action}</h1>
+        <button type="submit">{action}</button>
       </div>
     </Main>
   );
@@ -51,7 +51,10 @@ const Main = styled.header`
   }
 
   .action-container {
-    h1 {
+    button {
+      border: none;
+      background: none;
+
       color: ${(props) => props.theme.colors.lightblue};
       font-size: 1.2rem;
       font-weight: 500;

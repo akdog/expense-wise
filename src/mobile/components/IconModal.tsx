@@ -1,6 +1,6 @@
 //Import Redux
 import { useDispatch } from "react-redux";
-import { handleTransaction } from "../../state/transaction/transactionSlice";
+import { handleTransactionCategory } from "../../state/transaction/transactionSlice";
 
 type Props = {
   icon: React.ReactNode;
@@ -12,13 +12,13 @@ const IconModal = ({ icon, category, iconType }: Props) => {
   const dispatch = useDispatch();
 
   const handleTransactionDetails = (iconType: string, category: string) => {
-    dispatch(handleTransaction({ category, iconType }));
+    dispatch(handleTransactionCategory({ iconType, category }));
   };
 
   return (
     <div
       className="modal-icon"
-      onClick={() => handleTransactionDetails(category, iconType)}
+      onClick={() => handleTransactionDetails(iconType, category)}
     >
       {icon}
       <h5>{category}</h5>

@@ -2,19 +2,16 @@ import styled from "styled-components";
 
 //Import Components
 import TransactionCategory from "./TransactionCategory";
-
-//Import Icons
-import { MdCallSplit } from "react-icons/md";
-import { MdEditCalendar } from "react-icons/md";
-import { TbNotes } from "react-icons/tb";
-import { GrStatusUnknown } from "react-icons/gr";
+import TransactionNotes from "./TransactionNotes";
 
 type Props = {
   isModal: boolean;
   setIsModal: React.Dispatch<React.SetStateAction<boolean>>;
+  note: string;
+  setNote: React.Dispatch<React.SetStateAction<string>>;
 };
 
-const TransactionsView = ({ isModal, setIsModal }: Props) => {
+const TransactionsView = ({ isModal, setIsModal, note, setNote }: Props) => {
   const handleModal = () => {
     setIsModal(!isModal);
   };
@@ -22,6 +19,7 @@ const TransactionsView = ({ isModal, setIsModal }: Props) => {
   return (
     <Main>
       <TransactionCategory handleModal={handleModal} />
+      <TransactionNotes note={note} setNote={setNote} />
     </Main>
   );
 };

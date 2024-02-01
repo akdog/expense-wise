@@ -3,11 +3,27 @@ import styled from "styled-components";
 //Import Icons
 import { IoIosCard } from "react-icons/io";
 
-const TransactionHeader = () => {
+type Props = {
+  setTransactionAmount: React.Dispatch<React.SetStateAction<number>>;
+  transactionAmount: number;
+};
+
+const TransactionHeader = ({
+  setTransactionAmount,
+  transactionAmount,
+}: Props) => {
+  const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setTransactionAmount(Number(e.target.value));
+  };
+
   return (
     <Main>
       <h3>Deutsche Bank</h3>
-      <input placeholder="100$" />
+      <input
+        placeholder="100$"
+        value={transactionAmount}
+        onChange={handleAmount}
+      />
       <div className="bank-details">
         <IoIosCard size="25" />
         <h3>Deutsche-Bank</h3>
