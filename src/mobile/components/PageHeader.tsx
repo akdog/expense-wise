@@ -7,9 +7,15 @@ import { MdOutlineKeyboardArrowLeft } from "react-icons/md";
 type Props = {
   title: string;
   action?: string;
+  isAlert: boolean;
+  setIsAlert: React.Dispatch<React.SetStateAction<boolean>>;
 };
 
-const PageHeader = ({ title, action }: Props) => {
+const PageHeader = ({ title, action, isAlert, setIsAlert }: Props) => {
+  const handleAlert = () => {
+    setIsAlert(!isAlert);
+  };
+
   return (
     <Main>
       <div className="icon-container">
@@ -21,7 +27,9 @@ const PageHeader = ({ title, action }: Props) => {
         <h1>{title}</h1>
       </div>
       <div className="action-container">
-        <button type="submit">{action}</button>
+        <button type="submit" onClick={handleAlert}>
+          {action}
+        </button>
       </div>
     </Main>
   );

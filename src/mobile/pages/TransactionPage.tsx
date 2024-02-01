@@ -6,14 +6,16 @@ import PageHeader from "../components/PageHeader";
 import TransactionsView from "../components/TransactionsView";
 import TransactionHeader from "../components/TransactionHeader";
 import TransactionModal from "../components/TransactionModal";
+
+//Import Redux
 import { useDispatch, useSelector } from "react-redux";
 import { handleTransaction } from "../../state/transaction/transactionSlice";
 import { RootState } from "../../state/store";
-
-//Import Reduxt
+import TransactionAlert from "../components/TransactionAlert";
 
 const TransactionPage = () => {
   const [isModal, setIsModal] = useState(false);
+  const [isAlert, setIsAlert] = useState(false);
   const [transactionAmount, setTransactionAmount] = useState(0);
   const [note, setNote] = useState("");
 
@@ -40,9 +42,24 @@ const TransactionPage = () => {
     }
   };
 
+  if (isAlert) {
+    setTimeout(() => {
+      setIsAlert(false);
+    }, 3000);
+  }
+
   return (
     <Main onSubmit={handleSubmit}>
-      <PageHeader title="Transaction" action="Save" />
+      {isAlert ? (
+        <TransactionAlert />
+      ) : (
+        <PageHeader
+          title="Transaction"
+          action="Save"
+          isAlert={isAlert}
+          setIsAlert={setIsAlert}
+        />
+      )}
       <TransactionHeader
         transactionAmount={transactionAmount}
         setTransactionAmount={setTransactionAmount}
