@@ -3,11 +3,12 @@ import { MdFastfood } from "react-icons/md";
 import styled from "styled-components";
 
 type Props = {
-  transaction: string;
-  percentage: string;
+  category: string;
+  amount: number;
+  note: string;
 };
 
-const SingleStatDetail = ({ transaction, percentage }: Props) => {
+const SingleStatDetail = ({ category, amount, note }: Props) => {
   return (
     <Main>
       <div className="icon-container">
@@ -17,12 +18,12 @@ const SingleStatDetail = ({ transaction, percentage }: Props) => {
       </div>
       <div className="text-container">
         <div className="upper-container">
-          <h1>Eating Out</h1>
-          <h3>$1.200</h3>
+          <h1>{category}</h1>
+          <h3>${amount}</h3>
         </div>
         <div className="bottom-container">
-          <h3>{transaction}</h3>
-          <h3>{percentage}</h3>
+          <h3>{note}</h3>
+          <h3>Deutsche-Bank</h3>
         </div>
       </div>
     </Main>

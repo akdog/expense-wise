@@ -25,11 +25,9 @@ const TransactionPage = () => {
     e.preventDefault();
 
     if (state.category !== "") {
-      const category = state.category;
+      const info = state.category;
 
-      dispatch(
-        handleTransaction({ category, amount: transactionAmount, note })
-      );
+      dispatch(handleTransaction({ info, amount: transactionAmount, note }));
     } else {
       console.error("SOMETHING WENT WRONG");
     }

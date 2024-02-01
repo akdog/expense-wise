@@ -1,19 +1,28 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 //Import Components
 import SingleStatDetail from "./SingleStatDetail";
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
 
 const StatDetails = () => {
+  const state = useSelector((state: RootState) => state.transaction);
+
   return (
     <Main>
-      <Link to="/category-state">
-        <SingleStatDetail transaction="10 Transactions" percentage="35%" />
-      </Link>
-      <SingleStatDetail transaction="10 Transactions" percentage="35%" />
-      <SingleStatDetail transaction="10 Transactions" percentage="35%" />
-      <SingleStatDetail transaction="10 Transactions" percentage="35%" />
-      <SingleStatDetail transaction="10 Transactions" percentage="35%" />
+      {state.transaction.length <= 1 ? (
+        <h1>No Transactions</h1>
+      ) : (
+        <>
+          {state.transaction.map((item) => (
+            <SingleStatDetail
+              category={item.info}
+              amount={item.amount}
+              note={item.note}
+            />
+          ))}
+        </>
+      )}
     </Main>
   );
 };
@@ -28,6 +37,12 @@ const Main = styled.div`
   width: 100%;
 
   a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1.5rem;
+
     width: 100%;
   }
 `;

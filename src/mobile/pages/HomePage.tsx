@@ -14,9 +14,7 @@ import { RootState } from "../../state/store";
 
 const HomePage = () => {
   const state = useSelector((state: RootState) => state.transaction);
-  console.log(state.amount);
-  console.log(state.note);
-  console.log(state.category);
+  console.log(state.transaction);
 
   return (
     <Main>
