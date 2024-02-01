@@ -20,16 +20,23 @@ const TransactionPage = () => {
   const dispatch = useDispatch();
 
   const state = useSelector((state: RootState) => state.transaction);
+  const stateIncome = useSelector((state: RootState) => state.income);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    if (state.category !== "") {
-      const info = state.category;
+    const totalSpent = state.transaction.reduce(
+      (total, transaction) => total + transaction.amount,
+      0
+    );
 
+    const remainingBudget = stateIncome.monthlyBudget - totalSpent;
+
+    if (state.category !== "" && remainingBudget >= transactionAmount) {
+      const info = state.category;
       dispatch(handleTransaction({ info, amount: transactionAmount, note }));
     } else {
-      console.error("SOMETHING WENT WRONG");
+      console.error("Transaction canceled: Not enough budget");
     }
   };
 

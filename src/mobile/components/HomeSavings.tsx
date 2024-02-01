@@ -9,7 +9,13 @@ import { FaPlus } from "react-icons/fa";
 //Import Components
 import SavedSavings from "./SavedSavings";
 
+//Import Redux
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
+
 const HomeSavings = () => {
+  const state = useSelector((state: RootState) => state.savings);
+
   return (
     <Main>
       <div className="savings-container">
@@ -24,8 +30,9 @@ const HomeSavings = () => {
           <FaPlus size="35" />
         </Link>
       </div>
-      <SavedSavings />
-      <SavedSavings />
+      {state.goals.map((item) => (
+        <SavedSavings name={item.name} amount={item.amount} />
+      ))}
     </Main>
   );
 };

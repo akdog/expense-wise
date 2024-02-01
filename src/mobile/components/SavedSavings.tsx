@@ -1,8 +1,14 @@
-//Import Icons
-import { FaMoneyBillWave } from "react-icons/fa";
 import styled from "styled-components";
 
-const SavedSavings = () => {
+//Import Icons
+import { FaMoneyBillWave } from "react-icons/fa";
+
+type Props = {
+  name: string;
+  amount: number;
+};
+
+const SavedSavings = ({ name, amount }: Props) => {
   return (
     <Main>
       <div className="budget-inside">
@@ -11,8 +17,8 @@ const SavedSavings = () => {
         </div>
         <div className="text-container">
           <div className="text-header">
-            <h1>Playstation</h1>
-            <h1>7.120$</h1>
+            <h1>{name}</h1>
+            <h1>{amount}$</h1>
           </div>
           <hr />
           <div className="spend-container">

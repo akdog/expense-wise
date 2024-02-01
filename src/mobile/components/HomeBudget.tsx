@@ -1,13 +1,22 @@
 import styled from "styled-components";
-//Import Icons
 import { FaMoneyBillWave } from "react-icons/fa";
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 
-//import Redux
-
 const HomeBudget = () => {
   const state = useSelector((state: RootState) => state.income);
+  const stateExpense = useSelector((state: RootState) => state.transaction);
+
+  const expenseData = stateExpense.transaction;
+
+  // Calculate total spent and percentage spent
+  const totalSpent = expenseData.reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
+  const percentageSpent: number = (totalSpent / state.monthlyBudget) * 100;
+  const remainingBudget = state.monthlyBudget - totalSpent;
+  const leftBudget: number = 100 - parseInt(percentageSpent.toFixed(0), 10);
 
   return (
     <Main>
@@ -21,10 +30,21 @@ const HomeBudget = () => {
             <h1>Monthly Budget</h1>
             <h1>{state.monthlyBudget}$</h1>
           </div>
-          <hr />
+          <input
+            type="range"
+            min="0"
+            max="100"
+            value={percentageSpent}
+            readOnly
+            style={{ width: "100%", marginTop: "0.5rem" }}
+          />
           <div className="spend-container">
-            <h1>Spend 0$ 0%</h1>
-            <h1>Left {state.monthlyBudget}$ 100%</h1>
+            <h1>
+              Spend {totalSpent}$ {percentageSpent.toFixed(0)}%
+            </h1>
+            <h1>
+              Left {remainingBudget}$ {leftBudget}%
+            </h1>
           </div>
         </div>
       </div>
@@ -34,12 +54,12 @@ const HomeBudget = () => {
 
 const Main = styled.div`
   width: 100%;
-
   margin-top: 2rem;
 
   #main-header {
     font-size: 1.4rem;
   }
+
   .budget-inside {
     display: flex;
     justify-content: center;
@@ -47,12 +67,10 @@ const Main = styled.div`
     gap: 1rem;
 
     width: 100%;
-
     padding: 1rem;
     margin-top: 1rem;
 
     background: #ececec;
-
     border-radius: 10px;
 
     .text-container {
@@ -61,14 +79,12 @@ const Main = styled.div`
       align-items: center;
       flex-direction: column;
       gap: 0.5rem;
-
       width: 100%;
 
       .text-header {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         width: 100%;
 
         h1 {
@@ -76,18 +92,18 @@ const Main = styled.div`
         }
       }
 
-      hr {
+      input {
         width: 100%;
         height: 2vh;
         background: ${(props) => props.theme.colors.lightblue};
         border-radius: 10px;
         border: none;
       }
+
       .spend-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         width: 100%;
 
         h1 {
