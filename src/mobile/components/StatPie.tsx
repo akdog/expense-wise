@@ -1,9 +1,16 @@
+import styled from "styled-components";
+import RePieCharts from "./RePieCharts";
+
 const StatPie = () => {
   return (
-    <div>
-      <h1>StatPie</h1>
-    </div>
+    <Main>
+      <RePieCharts />
+    </Main>
   );
 };
+
+const Main = styled.div`
+  width: 100%;
+`;
 
 export default StatPie;

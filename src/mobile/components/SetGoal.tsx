@@ -1,26 +1,75 @@
-import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import styled from "styled-components";
 
-const SetGoal = () => {
-  const navigate = useNavigate();
+//Import Redux
+import { useDispatch } from "react-redux";
+import { handleSavingGoals } from "../../state/savingGoals/savingSlice";
 
-  const handleSubmit = () => {
-    navigate("/goal/finished");
+const SetGoal = () => {
+  const [name, setName] = useState("");
+  const [goalAmount, setGoalAmount] = useState(0);
+  const [emoji, setEmoji] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleSubmit = (
+    e: React.FormEvent,
+    name: string,
+    goalAmount: number,
+    emoji: string
+  ) => {
+    e.preventDefault();
+    dispatch(handleSavingGoals({ name, amount: goalAmount, emoji }));
+
+    setName("");
+    setGoalAmount(0);
+    setEmoji("");
+  };
+
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const handleGoal = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setGoalAmount(Number(e.target.value));
+  };
+
+  const handleEmoji = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setEmoji(e.target.value);
   };
 
   return (
-    <Main onSubmit={handleSubmit}>
+    <Main
+      onSubmit={(e: React.FormEvent) =>
+        handleSubmit(e, name, goalAmount, emoji)
+      }
+    >
       <div className="name-input inputs">
         <label>Name</label>
-        <input type="text" placeholder="Name" />
+        <input
+          type="text"
+          placeholder="Name"
+          value={name}
+          onChange={handleName}
+        />
       </div>
       <div className="amount-input inputs">
-        <label>Amount goal</label>
-        <input type="number" placeholder="Amount" />
+        <label>Amount in $</label>
+        <input
+          type="number"
+          placeholder="Amount"
+          value={goalAmount}
+          onChange={handleGoal}
+        />
       </div>
       <div className="emoji-input ">
         <label>Emoji</label>
-        <input type="text" placeholder="Emoji" />
+        <input
+          type="text"
+          placeholder="Emoji"
+          value={emoji}
+          onChange={handleEmoji}
+        />
       </div>
       <button type="submit">Set Goal</button>
     </Main>

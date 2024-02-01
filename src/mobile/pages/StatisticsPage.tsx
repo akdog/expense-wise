@@ -6,12 +6,18 @@ import StatCategory from "../components/StatCategory";
 import StatPie from "../components/StatPie";
 import StatDetails from "../components/StatDetails";
 
+//Import Redux
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
+
 const StatisticsPage = () => {
+  const state = useSelector((state: RootState) => state.transaction);
+
   return (
     <Main>
       <PageHeader title="Statistics" />
       <StatCategory />
-      <StatPie />
+      {state.transaction.length < 0 ? "" : <StatPie />}
       <StatDetails />
     </Main>
   );

@@ -7,12 +7,18 @@ import { RootState } from "../../state/store";
 
 const HomeStatsMain = () => {
   const state = useSelector((state: RootState) => state.income);
+  const stateTransaction = useSelector((state: RootState) => state.transaction);
+
+  const totalExpenseAmount = stateTransaction.transaction.reduce(
+    (total, transaction) => total + transaction.amount,
+    0
+  );
 
   return (
     <Main>
       <HomeStatsExpend
         title="Expense"
-        amount="-6.800"
+        amount={`-${totalExpenseAmount.toFixed(1)}`}
         className="expense-container"
         svgID="expense-icon"
         insideClassName="expense"

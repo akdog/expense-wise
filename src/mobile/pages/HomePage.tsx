@@ -13,8 +13,8 @@ import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 
 const HomePage = () => {
-  const state = useSelector((state: RootState) => state.transaction);
-  console.log(state.transaction);
+  const state = useSelector((state: RootState) => state.savings);
+  console.log(state.goals);
 
   return (
     <Main>
