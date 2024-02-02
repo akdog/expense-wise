@@ -1,46 +1,34 @@
 import styled from "styled-components";
 
 //Import Icons
-import { FaHome } from "react-icons/fa";
-import { MdDashboard } from "react-icons/md";
-import { FaWallet } from "react-icons/fa";
-import { MdCompareArrows } from "react-icons/md";
-import { FaUser } from "react-icons/fa";
+import { IoHome } from "react-icons/io5";
+import { FaRegUserCircle } from "react-icons/fa";
+import { AiFillMessage } from "react-icons/ai";
 import { IoSettings } from "react-icons/io5";
-import { IoLogOut } from "react-icons/io5";
 
 const Sidebar = () => {
   return (
     <Main>
-      <h1 id="logo">SmartExpense</h1>
-      <div className="menu">
-        <div className="menu-icon">
-          <FaHome size="20" />
-          <h3>Home</h3>
+      <div className="sidebar-header">
+        <h2>Pay</h2>
+        <h4>Dashboard</h4>
+      </div>
+      <div className="sidebar-menu">
+        <div className="sidebar-icon">
+          <IoHome size="35" />
+          <h4>Home</h4>
         </div>
-        <div className="menu-icon">
-          <MdDashboard size="20" />
-          <h3>Dashboard</h3>
+        <div className="sidebar-icon">
+          <FaRegUserCircle size="35" />
+          <h4>Profile</h4>
         </div>
-        <div className="menu-icon">
-          <FaWallet size="20" />
-          <h3>Wallet</h3>
+        <div className="sidebar-icon">
+          <AiFillMessage size="35" />
+          <h4>Messages</h4>
         </div>
-        <div className="menu-icon">
-          <MdCompareArrows size="20" />
-          <h3>Transactions</h3>
-        </div>
-        <div className="menu-icon">
-          <FaUser size="20" />
-          <h3>Profile</h3>
-        </div>
-        <div className="menu-icon">
-          <IoSettings size="20" />
-          <h3>Settings</h3>
-        </div>
-        <div className="menu-icon">
-          <IoLogOut size="20" />
-          <h3>Log Out</h3>
+        <div className="sidebar-icon">
+          <IoSettings size="35" />
+          <h4>Settings</h4>
         </div>
       </div>
     </Main>
@@ -52,36 +40,39 @@ const Main = styled.nav`
   justify-content: flex-start;
   align-items: flex-start;
   flex-direction: column;
-  gap: 3rem;
+  gap: 8rem;
 
-  width: 15%;
   height: 100%;
+  width: 8%;
 
-  background: ${(props) => props.theme.Dcolors.contrast};
+  background: linear-gradient(
+    180deg,
+    rgba(1, 39, 145, 1) 0%,
+    rgba(47, 105, 255, 1) 50%,
+    rgba(0, 61, 170, 1) 100%
+  );
+
+  color: white;
+
+  border-radius: 0px 20px 20px 0px;
+
   padding: 1rem;
 
-  #logo {
-    font-weight: 500;
-  }
+  .sidebar-menu {
+    width: 100%;
 
-  .menu {
     display: flex;
     justify-content: center;
-    align-items: flex-start;
+    align-items: center;
     flex-direction: column;
     gap: 4rem;
 
-    .menu-icon {
+    .sidebar-icon {
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1rem;
-
-      cursor: pointer;
-
-      svg {
-        color: ${(props) => props.theme.colors.lightblue};
-      }
+      flex-direction: column;
+      gap: 0.5rem;
     }
   }
 `;

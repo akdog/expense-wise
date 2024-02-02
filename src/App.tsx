@@ -51,12 +51,12 @@ const GlobalStyle = createGlobalStyle<GlobalStyleProps>`
 
   body{
     font-family: "Montserrat", sans-serif;
-    background: ${(props) => (props.isMobile ? "#EFEFF1" : "#15152D")};    
-    color: ${(props) => (props.isMobile ? "" : "white")};
+    background: ${(props) => (props.isMobile ? "#EFEFF1" : "#EFEFF1")};    
+    color: ${(props) => (props.isMobile ? "" : "black")};
 
   }
   h1{
-    color: ${(props) => (props.isMobile ? "" : "white")};
+    color: ${(props) => (props.isMobile ? "" : "black")};
   }
   a{
     text-decoration:none;
