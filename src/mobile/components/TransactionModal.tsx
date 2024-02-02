@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { AnimatePresence, motion } from "framer-motion";
 
 //Import Components
 import IconModal from "./IconModal";
@@ -21,63 +22,89 @@ const TransactionModal = ({ isModal, setIsModal }: Props) => {
   };
 
   return (
-    <Main>
-      <div className="modal-header">
-        <h3>Select Category</h3>
-        <h4 onClick={handleModal}>Cancel</h4>
-      </div>
-      <div className="modal-categories">
-        <IconModal
-          icon={<MdFastfood size={30} />}
-          category="Eating Out"
-          iconType="MdFastFood"
-        />
-        <IconModal
-          icon={<MdShoppingCart size={30} />}
-          category="Groceries"
-          iconType="MdShoppingCart"
-        />
-        <IconModal
-          icon={<MdVideogameAsset size={30} />}
-          category="Games"
-          iconType="MdVideogameAsset"
-        />
-        <IconModal
-          icon={<TbJacket size={30} />}
-          category="Clothes"
-          iconType="TbJacket"
-        />
-        <IconModal
-          icon={<FaUniversity size={30} />}
-          category="Education"
-          iconType="FaUniversity"
-        />
-        <IconModal
-          iconType="FaCar"
-          icon={<FaCar size={30} />}
-          category="Transportation"
-        />
-        <IconModal
-          iconType="FaHome"
-          icon={<FaHome size={30} />}
-          category="Home"
-        />
-        <IconModal
-          iconType="FaHeart"
-          icon={<FaHeart size={30} />}
-          category="Health"
-        />
-        <IconModal
-          iconType="FaBook"
-          icon={<FaBook size={30} />}
-          category="Books"
-        />
-      </div>
-    </Main>
+    <AnimatePresence>
+      {isModal && (
+        <ModalContainer
+          initial={{ opacity: 0, y: 100 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: 100 }}
+        >
+          <div className="modal-header">
+            <h3>Select Category</h3>
+            <h4 onClick={handleModal}>Cancel</h4>
+          </div>
+          <div className="modal-categories">
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                icon={<MdFastfood size={30} />}
+                category="Eating Out"
+                iconType="MdFastFood"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                icon={<MdShoppingCart size={30} />}
+                category="Groceries"
+                iconType="MdShoppingCart"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                icon={<MdVideogameAsset size={30} />}
+                category="Games"
+                iconType="MdVideogameAsset"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                icon={<TbJacket size={30} />}
+                category="Clothes"
+                iconType="TbJacket"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                icon={<FaUniversity size={30} />}
+                category="Education"
+                iconType="FaUniversity"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                iconType="FaCar"
+                icon={<FaCar size={30} />}
+                category="Transportation"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                iconType="FaHome"
+                icon={<FaHome size={30} />}
+                category="Home"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                iconType="FaHeart"
+                icon={<FaHeart size={30} />}
+                category="Health"
+              />
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.1 }} whileTap={{ scale: 0.9 }}>
+              <IconModal
+                iconType="FaBook"
+                icon={<FaBook size={30} />}
+                category="Books"
+              />
+            </motion.div>
+          </div>
+        </ModalContainer>
+      )}
+    </AnimatePresence>
   );
 };
 
-const Main = styled.div`
+const ModalContainer = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -92,6 +119,8 @@ const Main = styled.div`
 
   position: absolute;
   bottom: 0%;
+
+  color: ${(props) => props.theme.colors.primary};
 
   .modal-header {
     display: flex;

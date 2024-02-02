@@ -1,13 +1,11 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
 type SavingState = {
-  goals: [
-    {
-      name: string;
-      amount: number;
-      emoji: string;
-    }
-  ];
+  goals: {
+    name: string;
+    amount: number;
+    emoji: string;
+  }[];
 };
 
 const initialState: SavingState = {

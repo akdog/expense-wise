@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import styled from "styled-components";
 
 //Import Components
@@ -16,9 +16,10 @@ import { RootState } from "../../state/store";
 const TransactionPage = () => {
   const [isModal, setIsModal] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
-  const [alertType, setAlertType] = useState("success");
+
   const [transactionAmount, setTransactionAmount] = useState(0);
   const [note, setNote] = useState("");
+  const [alertType, setAlertType] = useState("");
 
   const dispatch = useDispatch();
 
@@ -37,31 +38,29 @@ const TransactionPage = () => {
 
     if (state.category !== "" && remainingBudget >= transactionAmount) {
       const info = state.category;
+      setAlertType("success");
       console.log("Transaction successful");
       dispatch(handleTransaction({ info, amount: transactionAmount, note }));
+
+      setNote("");
+      setTransactionAmount(0);
     } else {
-      setAlertType("error");
       console.error("Transaction canceled: Not enough budget");
+      setAlertType("error");
     }
   };
 
+  console.log(alertType);
+
   return (
     <Main onSubmit={handleSubmit}>
-      {/* {isAlert ? (
-        <TransactionAlert alertType={alertType} />
-      ) : (
-        <PageHeader
-          title="Transaction"
-          action="Save"
-          isAlert={isAlert}
-          setIsAlert={setIsAlert}
-        />
-      )} */}
+      <TransactionAlert />
       <PageHeader
         title="Transaction"
         action="Save"
         isAlert={isAlert}
         setIsAlert={setIsAlert}
+        alertType={alertType}
       />
       <TransactionHeader
         transactionAmount={transactionAmount}
@@ -94,6 +93,8 @@ const Main = styled.form`
   padding: 1rem;
 
   position: relative;
+
+  color: ${(props) => props.theme.colors.primary};
 `;
 
 export default TransactionPage;

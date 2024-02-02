@@ -30,6 +30,7 @@ const Main = styled.div`
 
   position: relative;
 
+  color: ${(props) => props.theme.colors.primary};
   .home-header {
     display: flex;
     justify-content: space-between;

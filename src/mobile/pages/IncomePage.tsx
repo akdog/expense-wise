@@ -100,7 +100,7 @@ const Main = styled.form`
   .input-container {
     margin-top: 4rem;
 
-    width: 30%;
+    width: 40%;
 
     padding: 0.5rem;
 
@@ -112,7 +112,7 @@ const Main = styled.form`
       font-weight: 500;
 
       top: 11%;
-      right: 72%;
+      left: 8%;
     }
 
     input {

@@ -52,7 +52,7 @@ const Main = styled.div`
       background: none;
       border: none;
       outline: none;
-      font-size: 1rem;
+      font-size: 1.3rem;
 
       width: 100%;
       margin: 0 auto;

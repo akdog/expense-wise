@@ -49,7 +49,6 @@ const TransactionCategory = ({ handleModal }: Props) => {
     <Main onClick={handleModal}>
       <div className="icon-container">
         {getIconBasedOnType(state.iconType)}
-
         {state.iconType === "" ? (
           <h3>Uncategorized transactions</h3>
         ) : (

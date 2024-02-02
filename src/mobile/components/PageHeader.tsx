@@ -1,3 +1,4 @@
+import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
@@ -9,11 +10,59 @@ type Props = {
   action?: string;
   isAlert: boolean;
   setIsAlert: React.Dispatch<React.SetStateAction<boolean>>;
+  alertType?: string;
 };
 
-const PageHeader = ({ title, action, isAlert, setIsAlert }: Props) => {
+const PageHeader = ({
+  title,
+  action,
+  isAlert,
+  setIsAlert,
+  alertType,
+}: Props) => {
+  const notify = () => {
+    switch (alertType) {
+      case "success":
+        toast.success("Transaction successful!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        break;
+      case "error":
+        toast.error("Transaction failed!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        break;
+      case "warning":
+        toast.warning("Transaction: Not enough budget!", {
+          position: "top-right",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+        });
+        break;
+      default:
+        break;
+    }
+  };
+
   const handleAlert = () => {
     setIsAlert(!isAlert);
+    notify();
   };
 
   return (

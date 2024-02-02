@@ -6,6 +6,7 @@ import { RootState } from "../../state/store";
 const HomeBudget = () => {
   const state = useSelector((state: RootState) => state.income);
   const stateExpense = useSelector((state: RootState) => state.transaction);
+  const stateSavings = useSelector((state: RootState) => state.savings);
 
   const expenseData = stateExpense.transaction;
 
@@ -14,8 +15,18 @@ const HomeBudget = () => {
     (total, expense) => total + expense.amount,
     0
   );
-  const percentageSpent: number = (totalSpent / state.monthlyBudget) * 100;
-  const remainingBudget = state.monthlyBudget - totalSpent;
+
+  const savingData = stateSavings.goals;
+
+  const savingSpent = savingData.reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
+
+  const totalSpendCalc = totalSpent + savingSpent;
+
+  const percentageSpent: number = (totalSpendCalc / state.monthlyBudget) * 100;
+  const remainingBudget = state.monthlyBudget - totalSpendCalc;
   const leftBudget: number = 100 - parseInt(percentageSpent.toFixed(0), 10);
 
   return (
@@ -28,7 +39,7 @@ const HomeBudget = () => {
         <div className="text-container">
           <div className="text-header">
             <h1>Monthly Budget</h1>
-            <h1>{state.monthlyBudget}$</h1>
+            <h1 id="budget-month">{state.monthlyBudget}$</h1>
           </div>
           <input
             type="range"
@@ -40,7 +51,7 @@ const HomeBudget = () => {
           />
           <div className="spend-container">
             <h1>
-              Spend {totalSpent}$ {percentageSpent.toFixed(0)}%
+              Spend {totalSpendCalc}$ {percentageSpent.toFixed(0)}%
             </h1>
             <h1>
               Left {remainingBudget}$ {leftBudget}%
@@ -89,6 +100,10 @@ const Main = styled.div`
 
         h1 {
           font-size: 1rem;
+        }
+
+        #budget-month {
+          color: ${(props) => props.theme.colors.secondary};
         }
       }
 

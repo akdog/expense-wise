@@ -19,7 +19,8 @@ const IconModal = ({ icon, category, iconType }: Props) => {
   return (
     <Main
       className="modal-icon"
-      onClick={() => handleTransactionDetails(iconType, category)}>
+      onClick={() => handleTransactionDetails(iconType, category)}
+    >
       <div className="icon-container">{icon}</div>
       <h5>{category}</h5>
     </Main>
@@ -39,6 +40,8 @@ const Main = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
+
+    color: ${(props) => props.theme.colors.primary};
   }
 `;
 

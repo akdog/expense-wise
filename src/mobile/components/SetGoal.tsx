@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
+import { motion } from "framer-motion";
 
 //Import Redux
 import { useDispatch } from "react-redux";
@@ -19,12 +21,18 @@ const SetGoal = () => {
     emoji: string
   ) => {
     e.preventDefault();
+
+    if (name === "" && goalAmount === 0 && emoji === "") {
+      return console.error("Failed to Save");
+    }
     dispatch(handleSavingGoals({ name, amount: goalAmount, emoji }));
 
     setName("");
     setGoalAmount(0);
     setEmoji("");
   };
+
+  const notify = () => toast("Goal Saved!");
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -38,40 +46,71 @@ const SetGoal = () => {
     setEmoji(e.target.value);
   };
 
+  const inputVariants = {
+    focus: { scale: 1.05 },
+    blur: { scale: 1 },
+  };
+
   return (
     <Main
       onSubmit={(e: React.FormEvent) =>
         handleSubmit(e, name, goalAmount, emoji)
       }
     >
-      <div className="name-input inputs">
+      <ToastContainer />
+      <motion.div
+        className="name-input inputs"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <label>Name</label>
-        <input
+        <motion.input
           type="text"
           placeholder="Name"
           value={name}
           onChange={handleName}
+          variants={inputVariants}
+          whileFocus="focus"
         />
-      </div>
-      <div className="amount-input inputs">
+      </motion.div>
+      <motion.div
+        className="amount-input inputs"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <label>Amount in $</label>
-        <input
+        <motion.input
           type="number"
           placeholder="Amount"
           value={goalAmount}
           onChange={handleGoal}
+          variants={inputVariants}
+          whileFocus="focus"
         />
-      </div>
-      <div className="emoji-input ">
+      </motion.div>
+      <motion.div
+        className="emoji-input"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+      >
         <label>Emoji</label>
-        <input
+        <motion.input
           type="text"
           placeholder="Emoji"
           value={emoji}
           onChange={handleEmoji}
+          variants={inputVariants}
+          whileFocus="focus"
         />
-      </div>
-      <button type="submit">Set Goal</button>
+      </motion.div>
+      <motion.button
+        onClick={notify}
+        type="submit"
+        whileHover={{ scale: 1.05 }}
+        whileTap={{ scale: 0.95 }}
+      >
+        Set Goal
+      </motion.button>
     </Main>
   );
 };

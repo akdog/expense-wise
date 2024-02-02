@@ -1,6 +1,13 @@
 //Import Icons
 import { MdFastfood } from "react-icons/md";
+import { GrStatusUnknown } from "react-icons/gr";
+import { MdShoppingCart } from "react-icons/md";
+import { MdVideogameAsset } from "react-icons/md";
+import { TbJacket } from "react-icons/tb";
+import { FaUniversity, FaCar, FaHome, FaHeart, FaBook } from "react-icons/fa";
+
 import styled from "styled-components";
+import { motion } from "framer-motion";
 
 type Props = {
   category: string;
@@ -9,12 +16,40 @@ type Props = {
 };
 
 const SingleStatDetail = ({ category, amount, note }: Props) => {
+  const getIconBasedOnType = (categories: string) => {
+    switch (categories.toLowerCase()) {
+      case "eating out":
+        return <MdFastfood size="35" />;
+      case "groceries":
+        return <MdShoppingCart size="35" />;
+      case "games":
+        return <MdVideogameAsset size="35" />;
+      case "clothes":
+        return <TbJacket size="35" />;
+      case "education":
+        return <FaUniversity size="35" />;
+      case "transportation":
+        return <FaCar size="35" />;
+      case "home":
+        return <FaHome size="35" />;
+      case "health":
+        return <FaHeart size="35" />;
+      case "books":
+        return <FaBook size="35" />;
+      default:
+        return <GrStatusUnknown size="35" />;
+    }
+  };
+
+  const slideInVariant = {
+    hidden: { x: -50, opacity: 0 },
+    visible: { x: 0, opacity: 1 },
+  };
+
   return (
-    <Main>
+    <AnimatedStat variants={slideInVariant} initial="hidden" animate="visible">
       <div className="icon-container">
-        <div className="svg-container">
-          <MdFastfood size="25" />
-        </div>
+        <div className="svg-container">{getIconBasedOnType(category)}</div>
       </div>
       <div className="text-container">
         <div className="upper-container">
@@ -26,11 +61,11 @@ const SingleStatDetail = ({ category, amount, note }: Props) => {
           <h3>Deutsche-Bank</h3>
         </div>
       </div>
-    </Main>
+    </AnimatedStat>
   );
 };
 
-const Main = styled.div`
+const AnimatedStat = styled(motion.div)`
   display: flex;
   justify-content: center;
   align-items: center;
