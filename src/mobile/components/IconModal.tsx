@@ -1,5 +1,6 @@
 //Import Redux
 import { useDispatch } from "react-redux";
+import styled from "styled-components";
 import { handleTransactionCategory } from "../../state/transaction/transactionSlice";
 
 type Props = {
@@ -16,14 +17,29 @@ const IconModal = ({ icon, category, iconType }: Props) => {
   };
 
   return (
-    <div
+    <Main
       className="modal-icon"
-      onClick={() => handleTransactionDetails(iconType, category)}
-    >
-      {icon}
+      onClick={() => handleTransactionDetails(iconType, category)}>
+      <div className="icon-container">{icon}</div>
       <h5>{category}</h5>
-    </div>
+    </Main>
   );
 };
+
+const Main = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 0.5rem;
+
+  .icon-container {
+    width: 15vw;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+`;
 
 export default IconModal;

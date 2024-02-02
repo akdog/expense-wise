@@ -7,7 +7,7 @@ import { MdFastfood } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { MdVideogameAsset } from "react-icons/md";
 import { TbJacket } from "react-icons/tb";
-import { FaUniversity } from "react-icons/fa";
+import { FaUniversity, FaCar, FaHome, FaHeart, FaBook } from "react-icons/fa";
 
 //Import Redux
 import { useSelector } from "react-redux";
@@ -32,6 +32,14 @@ const TransactionCategory = ({ handleModal }: Props) => {
         return <TbJacket size="35" />;
       case "fauniversity":
         return <FaUniversity size="35" />;
+      case "facar":
+        return <FaCar size="35" />;
+      case "fahome":
+        return <FaHome size="35" />;
+      case "faheart":
+        return <FaHeart size="35" />;
+      case "fabook":
+        return <FaBook size="35" />;
       default:
         return <GrStatusUnknown size="35" />;
     }

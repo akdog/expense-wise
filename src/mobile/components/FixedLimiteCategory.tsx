@@ -1,8 +1,5 @@
 import styled from "styled-components";
 
-//Import Icons
-import { MdFastfood } from "react-icons/md";
-
 //Import Components
 import ExpenseLimit from "./ExpenseLimit";
 
@@ -19,7 +16,11 @@ const FixedLimiteCategory = () => {
     <Main>
       <h1 id="main-header">Analytics</h1>
       {state.expenseLimit.map((item) => (
-        <ExpenseLimit category={item.category} limit={item.limit} />
+        <ExpenseLimit
+          key={item.id}
+          category={item.category}
+          limit={item.limit}
+        />
       ))}
     </Main>
   );

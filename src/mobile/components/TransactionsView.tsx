@@ -16,10 +16,18 @@ const TransactionsView = ({ isModal, setIsModal, note, setNote }: Props) => {
     setIsModal(!isModal);
   };
 
+  const handleModalFalse = () => {
+    setIsModal(false);
+  };
+
   return (
     <Main>
       <TransactionCategory handleModal={handleModal} />
-      <TransactionNotes note={note} setNote={setNote} />
+      <TransactionNotes
+        note={note}
+        setNote={setNote}
+        handleModalFalse={handleModalFalse}
+      />
     </Main>
   );
 };

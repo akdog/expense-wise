@@ -7,15 +7,16 @@ import { IoIosArrowForward } from "react-icons/io";
 type Props = {
   note: string;
   setNote: React.Dispatch<React.SetStateAction<string>>;
+  handleModalFalse: () => void;
 };
 
-const TransactionNotes = ({ note, setNote }: Props) => {
+const TransactionNotes = ({ note, setNote, handleModalFalse }: Props) => {
   const handleNote = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNote(e.target.value);
   };
 
   return (
-    <Main>
+    <Main onClick={handleModalFalse}>
       <div className="icon-container">
         <TbNotes size="35" />
         <input

@@ -8,7 +8,7 @@ import { MdFastfood } from "react-icons/md";
 import { MdShoppingCart } from "react-icons/md";
 import { MdVideogameAsset } from "react-icons/md";
 import { TbJacket } from "react-icons/tb";
-import { FaUniversity } from "react-icons/fa";
+import { FaUniversity, FaCar, FaHome, FaHeart, FaBook } from "react-icons/fa";
 
 type Props = {
   isModal: boolean;
@@ -28,59 +28,49 @@ const TransactionModal = ({ isModal, setIsModal }: Props) => {
       </div>
       <div className="modal-categories">
         <IconModal
-          icon={<MdFastfood size={35} />}
+          icon={<MdFastfood size={30} />}
           category="Eating Out"
           iconType="MdFastFood"
         />
         <IconModal
-          icon={<MdShoppingCart size={35} />}
+          icon={<MdShoppingCart size={30} />}
           category="Groceries"
           iconType="MdShoppingCart"
         />
         <IconModal
-          icon={<MdVideogameAsset size={35} />}
+          icon={<MdVideogameAsset size={30} />}
           category="Games"
           iconType="MdVideogameAsset"
         />
         <IconModal
-          icon={<TbJacket size={35} />}
+          icon={<TbJacket size={30} />}
           category="Clothes"
           iconType="TbJacket"
         />
         <IconModal
-          icon={<FaUniversity size={35} />}
+          icon={<FaUniversity size={30} />}
           category="Education"
           iconType="FaUniversity"
         />
         <IconModal
-          icon={<FaUniversity size={35} />}
-          category="Education"
-          iconType="FaUniversity"
+          iconType="FaCar"
+          icon={<FaCar size={30} />}
+          category="Transportation"
         />
         <IconModal
-          icon={<FaUniversity size={35} />}
-          category="Education"
-          iconType="FaUniversity"
+          iconType="FaHome"
+          icon={<FaHome size={30} />}
+          category="Home"
         />
         <IconModal
-          icon={<FaUniversity size={35} />}
-          category="Education"
-          iconType="FaUniversity"
+          iconType="FaHeart"
+          icon={<FaHeart size={30} />}
+          category="Health"
         />
         <IconModal
-          icon={<FaUniversity size={35} />}
-          category="Education"
-          iconType="FaUniversity"
-        />
-        <IconModal
-          icon={<FaUniversity size={35} />}
-          category="Education"
-          iconType="FaUniversity"
-        />
-        <IconModal
-          icon={<FaUniversity size={35} />}
-          category="Education"
-          iconType="FaUniversity"
+          iconType="FaBook"
+          icon={<FaBook size={30} />}
+          category="Books"
         />
       </div>
     </Main>
@@ -121,14 +111,6 @@ const Main = styled.div`
 
     width: 90%;
     margin: 0 auto;
-
-    .modal-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
   }
 `;
 

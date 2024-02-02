@@ -146,6 +146,7 @@ const Main = styled.div`
 
       border: none;
       outline: none;
+      background: none;
 
       color: ${(props) => props.theme.colors.secondary};
     }

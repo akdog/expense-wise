@@ -10,7 +10,7 @@ const StatPie = () => {
 };
 
 const Main = styled.div`
-  width: 100%;
+  width: 50%;
 `;
 
 export default StatPie;

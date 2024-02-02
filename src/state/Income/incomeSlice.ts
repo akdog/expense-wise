@@ -2,6 +2,7 @@
 
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 export type ExpenseCategory = {
+  id: string;
   category: string;
   limit: number;
 }[];
@@ -13,11 +14,11 @@ type IncomeState = {
 };
 
 const initialExpenseCategory: ExpenseCategory = [
-  { category: "eatingOut", limit: 0 },
-  { category: "groceries", limit: 0 },
-  { category: "electronics", limit: 0 },
-  { category: "clothes", limit: 0 },
-  { category: "education", limit: 0 },
+  { id: "1", category: "eatingOut", limit: 0 },
+  { id: "2", category: "groceries", limit: 0 },
+  { id: "3", category: "electronics", limit: 0 },
+  { id: "4", category: "clothes", limit: 0 },
+  { id: "5", category: "education", limit: 0 },
 ];
 
 const initialState: IncomeState = {

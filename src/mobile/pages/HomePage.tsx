@@ -9,13 +9,8 @@ import HomeBudget from "../components/HomeBudget";
 import HomeStatistic from "../components/HomeStatistic";
 import HomeSavings from "../components/HomeSavings";
 import Navbar from "../components/Navbar";
-import { useSelector } from "react-redux";
-import { RootState } from "../../state/store";
 
 const HomePage = () => {
-  const state = useSelector((state: RootState) => state.savings);
-  console.log(state.goals);
-
   return (
     <Main>
       <div className="home-header">

@@ -6,16 +6,17 @@ import PageHeader from "../components/PageHeader";
 import TransactionsView from "../components/TransactionsView";
 import TransactionHeader from "../components/TransactionHeader";
 import TransactionModal from "../components/TransactionModal";
+import TransactionAlert from "../components/TransactionAlert";
 
 //Import Redux
 import { useDispatch, useSelector } from "react-redux";
 import { handleTransaction } from "../../state/transaction/transactionSlice";
 import { RootState } from "../../state/store";
-import TransactionAlert from "../components/TransactionAlert";
 
 const TransactionPage = () => {
   const [isModal, setIsModal] = useState(false);
   const [isAlert, setIsAlert] = useState(false);
+  const [alertType, setAlertType] = useState("success");
   const [transactionAmount, setTransactionAmount] = useState(0);
   const [note, setNote] = useState("");
 
@@ -36,22 +37,18 @@ const TransactionPage = () => {
 
     if (state.category !== "" && remainingBudget >= transactionAmount) {
       const info = state.category;
+      console.log("Transaction successful");
       dispatch(handleTransaction({ info, amount: transactionAmount, note }));
     } else {
+      setAlertType("error");
       console.error("Transaction canceled: Not enough budget");
     }
   };
 
-  if (isAlert) {
-    setTimeout(() => {
-      setIsAlert(false);
-    }, 3000);
-  }
-
   return (
     <Main onSubmit={handleSubmit}>
-      {isAlert ? (
-        <TransactionAlert />
+      {/* {isAlert ? (
+        <TransactionAlert alertType={alertType} />
       ) : (
         <PageHeader
           title="Transaction"
@@ -59,7 +56,13 @@ const TransactionPage = () => {
           isAlert={isAlert}
           setIsAlert={setIsAlert}
         />
-      )}
+      )} */}
+      <PageHeader
+        title="Transaction"
+        action="Save"
+        isAlert={isAlert}
+        setIsAlert={setIsAlert}
+      />
       <TransactionHeader
         transactionAmount={transactionAmount}
         setTransactionAmount={setTransactionAmount}

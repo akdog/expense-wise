@@ -16,6 +16,19 @@ const TransactionHeader = ({
     setTransactionAmount(Number(e.target.value));
   };
 
+  const getCurrentDateTime = () => {
+    const options: Intl.DateTimeFormatOptions = {
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    };
+
+    const currentDateTime = new Date().toLocaleString("en-US", options);
+    return currentDateTime;
+  };
+
   return (
     <Main>
       <h3>Deutsche Bank</h3>
@@ -28,7 +41,7 @@ const TransactionHeader = ({
         <IoIosCard size="25" />
         <h3>Deutsche-Bank</h3>
       </div>
-      <p>27 March 2023 17:15</p>
+      <p>{getCurrentDateTime()}</p>
     </Main>
   );
 };

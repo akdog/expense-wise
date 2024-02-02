@@ -30,9 +30,13 @@ const HomeSavings = () => {
           <FaPlus size="35" />
         </Link>
       </div>
-      {state.goals.map((item) => (
-        <SavedSavings name={item.name} amount={item.amount} />
-      ))}
+      {state.goals.length >= 2 ? (
+        state.goals.map((item) => (
+          <SavedSavings name={item.name} amount={item.amount} />
+        ))
+      ) : (
+        <h3 id="no-goals">No Saving Goals...</h3>
+      )}
     </Main>
   );
 };
@@ -49,6 +53,11 @@ const Main = styled.div`
 
   svg {
     color: ${(props) => props.theme.colors.lightblue};
+  }
+
+  #no-goals {
+    margin-top: 4rem;
+    margin-bottom: 5rem;
   }
 
   .savings-container {
