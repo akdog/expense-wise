@@ -15,12 +15,12 @@ const Dashboard = () => {
 
 const Main = styled.div`
   width: 100%;
+  height: 100%;
 
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: column;
-  gap: 3rem;
 `;
 
 export default Dashboard;

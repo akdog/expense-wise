@@ -1,39 +1,38 @@
 import styled from "styled-components";
 
+//Import Components
+import UserCard from "./UserCard";
+import UpPayment from "./UpPayment";
+import Transactions from "./Transactions";
+
 const Finance = () => {
   return (
     <Main>
       <h1>Dashboard</h1>
-      <div className="user-container">
-        <div className="top-container">
-          <div className="card-container">
-            <div className="card-header">
-              <h1>Deutsche-Bank</h1>
-              <h3>Premium Account</h3>
-            </div>
-            <div className="card-details">
-              <h2>1234</h2>
-              <h2>****</h2>
-              <h2>****</h2>
-              <h2>9524</h2>
-            </div>
-            <div className="card-expire">
-              <div className="card-holder">
-                <h4>Card Holder</h4>
-                <h2>Asad Khan</h2>
-              </div>
-              <div className="card-date">
-                <h4>Expire Date</h4>
-                <h2>06/21</h2>
-              </div>
-            </div>
+      <div className="hero-wrapper">
+        <div className="left-container">
+          <div className="top-container">
+            <UserCard />
+            <UpPayment />
           </div>
-          <div className="payment-container">
-            <h1>Payment</h1>
+          <div className="bottom-container">
+            <Transactions />
           </div>
         </div>
-        <div className="transactions-container">
-          <h1>Transactions</h1>
+        <div className="right-container">
+          <div className="budget-container">
+            <div className="budget-header">
+              <h3>Saved this Month</h3>
+              <h2>$25.381.22</h2>
+            </div>
+            <div className="budget-graph">
+              <h1>GRAPH</h1>
+            </div>
+            <div className="budget-bottom">
+              <h3>Monthly Budget Saved:</h3>
+              <h3>80%</h3>
+            </div>
+          </div>
         </div>
       </div>
     </Main>
@@ -42,55 +41,78 @@ const Finance = () => {
 
 const Main = styled.div`
   width: 90%;
+  height: 100%;
   margin: 0 auto;
 
-  .user-container {
+  .hero-wrapper {
+    height: 90%;
+
     display: flex;
     justify-content: center;
     align-items: flex-start;
-    flex-direction: column;
-    gap: 2rem;
+    gap: 1rem;
 
-    width: 100%;
+    .left-container {
+      width: 70%;
+      height: 100%;
 
-    .top-container {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 1rem;
-
-      width: 100%;
-
-      .card-container {
+      .top-container {
         display: flex;
         justify-content: space-between;
-        align-items: flex-start;
+        align-items: center;
+
+        width: 100%;
+        height: 50%;
+      }
+
+      .bottom-container {
+        width: 100%;
+        height: 50%;
+      }
+    }
+
+    .right-container {
+      width: 30%;
+      height: 100%;
+
+      background: blue;
+      color: white;
+
+      padding: 1.5rem;
+
+      .budget-container {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         flex-direction: column;
+        gap: 1rem;
 
-        width: 50%;
-        height: 30vh;
-
-        padding: 1rem;
-
-        border-radius: 20px;
-
-        background: green;
-
-        .card-details {
+        .budget-header {
           display: flex;
-          justify-content: space-evenly;
+          justify-content: center;
           align-items: center;
+          flex-direction: column;
+          gap: 1rem;
 
           width: 100%;
         }
 
-        .card-expire {
+        .budget-graph {
+          width: 100%;
+          height: 60%;
         }
-      }
 
-      .payment-container {
-        width: 100%;
-        background: yellow;
+        .budget-bottom {
+          width: 100%;
+          height: 15%;
+
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+        }
       }
     }
   }
