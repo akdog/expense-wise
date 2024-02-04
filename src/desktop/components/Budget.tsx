@@ -36,6 +36,15 @@ const Main = styled.div`
     gap: 1rem;
 
     width: 100%;
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 500;
+    }
+    h3 {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
   }
 
   .budget-graph {
@@ -50,6 +59,11 @@ const Main = styled.div`
     display: flex;
     justify-content: space-around;
     align-items: center;
+
+    h3 {
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
   }
 `;
 

@@ -17,6 +17,14 @@ const Main = styled.div`
   align-items: center;
 
   width: 100%;
+
+  h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+  }
+  h4 {
+    font-weight: 500;
+  }
 `;
 
 export default SingleTransaction;

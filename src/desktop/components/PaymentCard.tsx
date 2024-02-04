@@ -44,12 +44,36 @@ const Main = styled.div`
 
   border-radius: 20px;
 
+  .card-header {
+    h2 {
+      font-size: 1.6rem;
+      color: white;
+      font-weight: 600;
+    }
+    h3 {
+      font-size: 1rem;
+      color: white;
+      font-weight: 500;
+    }
+  }
+
   .card-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     width: 100%;
+
+    h2 {
+      font-size: 1rem;
+      font-weight: 500;
+      color: white;
+    }
+    h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: white;
+    }
   }
 `;
 

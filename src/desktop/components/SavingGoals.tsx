@@ -60,6 +60,22 @@ const Main = styled.div`
     padding: 1rem;
 
     border-radius: 20px;
+
+    h2 {
+      color: white;
+      font-weight: 500;
+      font-size: 1.5rem;
+    }
+    h3 {
+      color: white;
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
+    h4 {
+      color: white;
+      font-weight: 400;
+      font-size: 1.2rem;
+    }
   }
 `;
 

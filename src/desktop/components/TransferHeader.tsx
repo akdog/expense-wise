@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const TransferHeader = () => {
   return (
-    <Main c>
+    <Main>
       <h1>Transfer</h1>
       <div className="transfer-options">
         <h3>Send</h3>
@@ -23,6 +23,12 @@ const Main = styled.div`
 
   padding: 1rem;
 
+  h1 {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 500;
+  }
+
   .transfer-options {
     width: 100%;
 
@@ -30,6 +36,12 @@ const Main = styled.div`
     justify-content: space-around;
     align-items: center;
     gap: 2rem;
+
+    h3 {
+      font-size: 1.4rem;
+      color: white;
+      font-weight: 500;
+    }
   }
 `;
 

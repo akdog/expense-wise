@@ -64,6 +64,8 @@ const Main = styled.div`
       width: 30%;
       height: 100%;
 
+      border-radius: 20px;
+
       background-image: linear-gradient(
         to right top,
         #6f6bd1,

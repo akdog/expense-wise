@@ -35,6 +35,11 @@ const Main = styled.form`
   align-items: center;
   flex-direction: column;
 
+  label {
+    font-size: 1rem;
+    color: white;
+  }
+
   .pay-to-transfer {
     width: 100%;
 
@@ -58,6 +63,8 @@ const Main = styled.form`
       text-align: center;
 
       width: 100%;
+
+      color: white;
     }
   }
 
@@ -104,11 +111,19 @@ const Main = styled.form`
       }
     }
   }
+  h3 {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+  }
   button {
     width: 100%;
     padding: 0.8rem;
 
     border-radius: 20px;
+    border: none;
+    cursor: pointer;
   }
 `;
 

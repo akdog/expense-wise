@@ -22,7 +22,7 @@ const Sidebar = () => {
           </Link>
         </div>
         <div className="sidebar-icon">
-          <Link to="/profile">
+          <Link to="/saving">
             <FaRegUserCircle size="35" />
             <h4>Profile</h4>
           </Link>
@@ -76,6 +76,17 @@ const Main = styled.nav`
 
   padding: 1rem;
 
+  .sidebar-header {
+    h2 {
+      font-weight: 500;
+      font-size: 1.4rem;
+    }
+    h4 {
+      font-weight: 600;
+      font-size: 1.3rem;
+    }
+  }
+
   .sidebar-menu {
     width: 100%;
 
@@ -95,6 +106,11 @@ const Main = styled.nav`
 
         text-decoration: none;
         color: white;
+
+        h4 {
+          font-size: 1rem;
+          font-weight: 500;
+        }
       }
     }
   }
