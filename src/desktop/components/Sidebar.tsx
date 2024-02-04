@@ -18,25 +18,25 @@ const Sidebar = () => {
         <div className="sidebar-icon">
           <Link to="/">
             <IoHome size="35" />
-            <h4>Home</h4>
+            <h4>Dashboard</h4>
           </Link>
         </div>
         <div className="sidebar-icon">
           <Link to="/saving">
             <FaRegUserCircle size="35" />
-            <h4>Profile</h4>
+            <h4>Savings</h4>
           </Link>
         </div>
         <div className="sidebar-icon">
           <Link to="/transfer">
             <AiFillMessage size="35" />
-            <h4>Messages</h4>
+            <h4>Transfer</h4>
           </Link>
         </div>
         <div className="sidebar-icon">
-          <Link to="/settings">
+          <Link to="/stats">
             <IoSettings size="35" />
-            <h4>Settings</h4>
+            <h4>Statistics</h4>
           </Link>
         </div>
       </div>

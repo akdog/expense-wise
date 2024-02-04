@@ -5,8 +5,7 @@ import styled from "styled-components";
 import LandingPage from "../desktop/pages/LandingPage";
 import TransferPage from "../desktop/pages/TransferPage";
 import SavingPage from "../desktop/pages/SavingPage";
-
-//Import Components
+import StatsPage from "../desktop/pages/StatsPage";
 
 const DesktopApp = () => {
   return (
@@ -15,6 +14,7 @@ const DesktopApp = () => {
         <Route path="/" element={<LandingPage />} />
         <Route path="/transfer" element={<TransferPage />} />
         <Route path="/saving" element={<SavingPage />} />
+        <Route path="/stats" element={<StatsPage />} />
       </Routes>
     </Main>
   );
