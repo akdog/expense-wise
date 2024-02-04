@@ -1,12 +1,38 @@
 import styled from "styled-components";
 
-const SingleTransaction = () => {
+//Import Icons
+import { FaUniversity, FaCar, FaHome, FaHeart, FaBook } from "react-icons/fa";
+
+type Props = {
+  info: string;
+  note: string;
+  amount: number;
+};
+
+const SingleTransaction = ({ info, note, amount }: Props) => {
+  const getIconBasedOnType = (categories: string) => {
+    switch (categories.toLowerCase()) {
+      case "fauniversity":
+        return <FaUniversity size="35" />;
+      case "facar":
+        return <FaCar size="35" />;
+      case "fahome":
+        return <FaHome size="35" />;
+      case "faheart":
+        return <FaHeart size="35" />;
+      case "fabook":
+        return <FaBook size="35" />;
+      default:
+        return <FaHome size="35" />;
+    }
+  };
+
   return (
     <Main>
-      <h1>Icon</h1>
-      <h3>Shopping</h3>
-      <h4>05 March 2021 10:00</h4>
-      <h3>$300</h3>
+      <h1>{getIconBasedOnType(note)}</h1>
+      <h3>{info}</h3>
+      <h4>{note}</h4>
+      <h3>${amount}</h3>
     </Main>
   );
 };

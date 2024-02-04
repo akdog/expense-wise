@@ -1,17 +1,33 @@
 import styled from "styled-components";
 import SingleTransaction from "./SingleTransaction";
 
+//Import Redux
+import { useSelector } from "react-redux";
+import { RootState } from "../../state/store";
+
 const Transactions = () => {
+  const stateTransaction = useSelector(
+    (state: RootState) => state.transaction.transaction
+  );
+
+  console.log(stateTransaction);
+
   return (
     <Main>
       <div className="transactions-header">
         <h1>Transaction</h1>
       </div>
-      <SingleTransaction />
-      <hr />
-      <SingleTransaction />
-      <hr />
-      <SingleTransaction />
+      {stateTransaction.map((item) => (
+        <>
+          <SingleTransaction
+            info={item.info}
+            note={item.note}
+            amount={item.amount}
+            key={item.amount}
+          />
+          <hr />
+        </>
+      ))}
     </Main>
   );
 };

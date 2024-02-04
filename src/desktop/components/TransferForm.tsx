@@ -1,21 +1,62 @@
+import { useState } from "react";
 import styled from "styled-components";
 
+//Import Redux
+import { useDispatch } from "react-redux";
+import { handleTransaction } from "../../state/transaction/transactionSlice";
+
 const TransferForm = () => {
+  const [info, setInfo] = useState("");
+  const [note, setNote] = useState("");
+  const [amount, setAmount] = useState(0);
+
+  const dispatch = useDispatch();
+
+  const handleTransactionSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    dispatch(handleTransaction({ info, note, amount }));
+
+    setInfo("");
+    setNote("");
+    setAmount(0);
+  };
+
+  const handleInfo = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setInfo(e.target.value);
+  };
+
+  const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(Number(e.target.value));
+  };
+
+  const handleNote = (e: React.ChangeEvent<HTMLSelectElement>) => {
+    setNote(e.target.value);
+  };
+
   return (
-    <Main>
+    <Main onSubmit={handleTransactionSubmit}>
       <div className="pay-to-transfer">
         <label>Pay To</label>
-        <input type="text" placeholder="Provide Details...." />
+        <input
+          type="text"
+          placeholder="Provide Details...."
+          value={info}
+          onChange={handleInfo}
+        />
         <p>Please enter the wallet ID or destination email</p>
       </div>
       <div className="transfer-details">
         <div className="transfer-amount">
           <label>Amount</label>
-          <input type="text" />
+          <input type="text" value={amount} onChange={handleAmount} />
         </div>
         <div className="transfer-reason">
           <label>Reason</label>
-          <input type="text" />
+          <select value={note} onChange={handleNote}>
+            <option value="FaHome">Home</option>
+            <option value="FaBook">Books</option>
+          </select>
         </div>
       </div>
       <h3>Total:</h3>

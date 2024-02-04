@@ -1,47 +1,92 @@
+import { useState } from "react";
 import styled from "styled-components";
 
+//Import Redux
+import { useDispatch } from "react-redux";
+import { handleSavingGoals } from "../../state/savingGoals/savingSlice";
+
+//Import Icons
+import { FaUniversity, FaCar, FaHome, FaHeart, FaBook } from "react-icons/fa";
+
+//Import Components
+import SavingIcons from "./SavingIcons";
+
 const SavingForm = () => {
+  const [name, setName] = useState("");
+  const [amount, setAmount] = useState(0);
+  const [emoji, setEmoji] = useState("");
+
+  const dispatch = useDispatch();
+
+  const handleSavings = (e: React.FormEvent) => {
+    e.preventDefault();
+    dispatch(handleSavingGoals({ name, amount, emoji }));
+
+    setName("");
+    setAmount(0);
+  };
+
+  const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setName(e.target.value);
+  };
+
+  const handleAmount = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAmount(Number(e.target.value));
+  };
+
   return (
-    <Main>
+    <Main onSubmit={handleSavings}>
       <h1>Saving Goals</h1>
       <form className="saving-form">
         <div className="saving-title inputs-container">
-          <label> Title</label>
-          <input type="text" placeholder="Provide Details..." />
+          <label>Title</label>
+          <input
+            type="text"
+            placeholder="Provide Details..."
+            value={name}
+            onChange={handleName}
+          />
         </div>
         <div className="saving-amount inputs-container">
           <label>Amount</label>
-          <input type="text" placeholder="Provide Details..." />
+          <input
+            type="text"
+            placeholder="Provide Details..."
+            value={amount}
+            onChange={handleAmount}
+          />
         </div>
         <div className="saving-icon ">
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
-          <div className="icon-container">
-            <h1>Icon</h1>
-            <h3>Name</h3>
-          </div>
+          <SavingIcons
+            icon={<FaBook size="35" color="white" />}
+            name="Book"
+            setEmoji={setEmoji}
+            iconName="FaBook"
+          />
+          <SavingIcons
+            icon={<FaHeart size="35" color="white" />}
+            name="Health"
+            setEmoji={setEmoji}
+            iconName="FaHeart"
+          />
+          <SavingIcons
+            icon={<FaCar size="35" color="white" />}
+            name="Car"
+            setEmoji={setEmoji}
+            iconName="FaCar"
+          />
+          <SavingIcons
+            icon={<FaHome size="35" color="white" />}
+            name="Home"
+            setEmoji={setEmoji}
+            iconName="FaHome"
+          />
+          <SavingIcons
+            icon={<FaUniversity size="35" color="white" />}
+            name="Uni"
+            setEmoji={setEmoji}
+            iconName="FaUniversity"
+          />
         </div>
         <button>Submit</button>
       </form>
@@ -122,6 +167,8 @@ const Main = styled.div`
         align-items: center;
         flex-direction: column;
         gap: 0.5rem;
+
+        cursor: pointer;
 
         h3 {
           color: white;
