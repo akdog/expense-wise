@@ -16,7 +16,7 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-menu">
         <div className="sidebar-icon">
-          <Link to="/">
+          <Link to="/home">
             <IoHome size="35" />
             <h4>Dashboard</h4>
           </Link>
@@ -54,21 +54,7 @@ const Main = styled.nav`
   height: 100%;
   width: 8%;
 
-  background-image: linear-gradient(
-    to right top,
-    #6f6bd1,
-    #7371d5,
-    #7776da,
-    #7c7cde,
-    #8082e2,
-    #7f86e5,
-    #7f89e9,
-    #7e8dec,
-    #788ff0,
-    #7091f4,
-    #6894f7,
-    #5f96fb
-  );
+  background: linear-gradient(to bottom, #285495, #7f2c9c);
 
   color: white;
 

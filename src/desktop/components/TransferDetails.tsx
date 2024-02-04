@@ -58,7 +58,11 @@ const Main = styled.div`
 
       border-radius: 20px;
 
-      background: #e3e375;
+      background: linear-gradient(to right, #285495, #7f2c9c);
+
+      h1 {
+        color: white;
+      }
     }
     .security-container {
       width: 80%;
@@ -68,7 +72,11 @@ const Main = styled.div`
 
       border-radius: 20px;
 
-      background: #b48e46;
+      background: linear-gradient(to right, #285495, #7f2c9c);
+
+      h1 {
+        color: white;
+      }
     }
   }
 `;

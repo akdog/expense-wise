@@ -41,7 +41,7 @@ const Main = styled.div`
     margin: 0 auto;
     height: 65%;
 
-    background: #e3ba6f;
+    background: linear-gradient(to right, #285495, #7f2c9c);
   }
 `;
 

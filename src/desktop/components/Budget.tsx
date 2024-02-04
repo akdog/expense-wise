@@ -1,11 +1,17 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootState } from "../../state/store";
+
+//Import Redux
 
 const Budget = () => {
+  const stateBudget = useSelector((state: RootState) => state.income);
+
   return (
     <Main>
       <div className="budget-header">
         <h3>Saved this Month</h3>
-        <h2>$25.381.22</h2>
+        <h2>${stateBudget.monthlyBudget}</h2>
       </div>
       <div className="budget-graph">
         <h1>GRAPH</h1>

@@ -1,6 +1,10 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootState } from "../../state/store";
 
 const SavingGoals = () => {
+  const stateIncome = useSelector((state: RootState) => state.income);
+
   return (
     <Main>
       <div className="payment-header">
@@ -9,7 +13,7 @@ const SavingGoals = () => {
       <div className="payment-main">
         <h2>PayPal</h2>
         <h3>Consulting Fees</h3>
-        <h4>$100.000</h4>
+        <h4>${stateIncome.income}</h4>
       </div>
     </Main>
   );
@@ -34,21 +38,8 @@ const Main = styled.div`
   }
 
   .payment-main {
-    background-image: linear-gradient(
-      to right top,
-      #6f6bd1,
-      #7371d5,
-      #7776da,
-      #7c7cde,
-      #8082e2,
-      #7f86e5,
-      #7f89e9,
-      #7e8dec,
-      #788ff0,
-      #7091f4,
-      #6894f7,
-      #5f96fb
-    );
+    background: linear-gradient(to right, #285495, #7f2c9c);
+
     width: 100%;
     height: 100%;
 

@@ -66,21 +66,8 @@ const Main = styled.div`
 
       border-radius: 20px;
 
-      background-image: linear-gradient(
-        to right top,
-        #6f6bd1,
-        #7371d5,
-        #7776da,
-        #7c7cde,
-        #8082e2,
-        #7f86e5,
-        #7f89e9,
-        #7e8dec,
-        #788ff0,
-        #7091f4,
-        #6894f7,
-        #5f96fb
-      );
+      background: linear-gradient(to bottom, #285495, #7f2c9c);
+
       color: white;
 
       padding: 1.5rem;

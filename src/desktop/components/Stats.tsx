@@ -43,21 +43,7 @@ const Main = styled.div`
     width: 100%;
 
     .income-container {
-      background-image: linear-gradient(
-        to right top,
-        #6f6bd1,
-        #7371d5,
-        #7776da,
-        #7c7cde,
-        #8082e2,
-        #7f86e5,
-        #7f89e9,
-        #7e8dec,
-        #788ff0,
-        #7091f4,
-        #6894f7,
-        #5f96fb
-      );
+      background: linear-gradient(to right, #285495, #7f2c9c);
 
       padding: 1rem;
       height: 30vh;
@@ -65,21 +51,7 @@ const Main = styled.div`
       border-radius: 20px;
     }
     .expense-container {
-      background-image: linear-gradient(
-        to right top,
-        #6f6bd1,
-        #7371d5,
-        #7776da,
-        #7c7cde,
-        #8082e2,
-        #7f86e5,
-        #7f89e9,
-        #7e8dec,
-        #788ff0,
-        #7091f4,
-        #6894f7,
-        #5f96fb
-      );
+      background: linear-gradient(to right, #285495, #7f2c9c);
 
       padding: 1rem;
       height: 30vh;
@@ -95,21 +67,7 @@ const Main = styled.div`
     width: 100%;
 
     .saving-container {
-      background-image: linear-gradient(
-        to right top,
-        #6f6bd1,
-        #7371d5,
-        #7776da,
-        #7c7cde,
-        #8082e2,
-        #7f86e5,
-        #7f89e9,
-        #7e8dec,
-        #788ff0,
-        #7091f4,
-        #6894f7,
-        #5f96fb
-      );
+      background: linear-gradient(to right, #285495, #7f2c9c);
 
       width: 35%;
       padding: 1rem;
@@ -117,21 +75,7 @@ const Main = styled.div`
       border-radius: 20px;
     }
     .total-container {
-      background-image: linear-gradient(
-        to right top,
-        #6f6bd1,
-        #7371d5,
-        #7776da,
-        #7c7cde,
-        #8082e2,
-        #7f86e5,
-        #7f89e9,
-        #7e8dec,
-        #788ff0,
-        #7091f4,
-        #6894f7,
-        #5f96fb
-      );
+      background: linear-gradient(to right, #285495, #7f2c9c);
 
       width: 62%;
       padding: 1rem;
