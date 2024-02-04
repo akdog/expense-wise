@@ -6,6 +6,7 @@ import { FaUniversity, FaCar, FaHome, FaHeart, FaBook } from "react-icons/fa";
 //Import Redux
 import { useSelector } from "react-redux";
 import { RootState } from "../../state/store";
+import { Link } from "react-router-dom";
 
 const SavingGoals = () => {
   const stateGoal = useSelector((state: RootState) => state.savings.goals);
@@ -27,6 +28,15 @@ const SavingGoals = () => {
     }
   };
 
+  if (stateGoal.length <= 1) {
+    return (
+      <NoGoals>
+        <h1>No Goals Yet</h1>
+        <Link to="/saving">Add Goals</Link>
+      </NoGoals>
+    );
+  }
+
   return (
     <Main>
       <div className="payment-header">
@@ -44,6 +54,34 @@ const SavingGoals = () => {
     </Main>
   );
 };
+
+const NoGoals = styled.div`
+  width: 55%;
+  height: 30vh;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+
+  a {
+    margin-top: 20px;
+    padding: 15px 30px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    width: 70%;
+
+    text-align: center;
+  }
+`;
 
 const Main = styled.div`
   width: 55%;

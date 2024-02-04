@@ -1,4 +1,7 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
+//Import Component
 import SingleTransaction from "./SingleTransaction";
 
 //Import Redux
@@ -10,7 +13,14 @@ const Transactions = () => {
     (state: RootState) => state.transaction.transaction
   );
 
-  console.log(stateTransaction);
+  if (stateTransaction.length <= 1) {
+    return (
+      <NoTransactions>
+        <h1>No Goals Yet</h1>
+        <Link to="/transfer">Add Transaction</Link>
+      </NoTransactions>
+    );
+  }
 
   return (
     <Main>
@@ -31,6 +41,34 @@ const Transactions = () => {
     </Main>
   );
 };
+
+const NoTransactions = styled.div`
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+
+  a {
+    margin-top: 20px;
+    padding: 15px 30px;
+
+    background-color: #3498db;
+    color: #fff;
+
+    border: none;
+    border-radius: 5px;
+
+    font-size: 20px;
+    cursor: pointer;
+
+    width: 70%;
+
+    text-align: center;
+  }
+`;
 
 const Main = styled.div`
   width: 100%;

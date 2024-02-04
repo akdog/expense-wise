@@ -1,5 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 //Import Redux
 import { useDispatch } from "react-redux";
@@ -20,10 +22,30 @@ const SavingForm = () => {
 
   const handleSavings = (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (name === "" && amount === 0 && emoji === "") {
+      return toast.error("Goaal Saving Failed!", {
+        position: "top-center",
+        autoClose: 3000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+      });
+    }
     dispatch(handleSavingGoals({ name, amount, emoji }));
 
     setName("");
     setAmount(0);
+
+    toast.success("Transfer successful!", {
+      position: "top-center",
+      autoClose: 3000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+    });
   };
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -35,62 +57,65 @@ const SavingForm = () => {
   };
 
   return (
-    <Main onSubmit={handleSavings}>
-      <h1>Saving Goals</h1>
-      <form className="saving-form">
-        <div className="saving-title inputs-container">
-          <label>Title</label>
-          <input
-            type="text"
-            placeholder="Provide Details..."
-            value={name}
-            onChange={handleName}
-          />
-        </div>
-        <div className="saving-amount inputs-container">
-          <label>Amount</label>
-          <input
-            type="text"
-            placeholder="Provide Details..."
-            value={amount}
-            onChange={handleAmount}
-          />
-        </div>
-        <div className="saving-icon ">
-          <SavingIcons
-            icon={<FaBook size="35" color="white" />}
-            name="Book"
-            setEmoji={setEmoji}
-            iconName="FaBook"
-          />
-          <SavingIcons
-            icon={<FaHeart size="35" color="white" />}
-            name="Health"
-            setEmoji={setEmoji}
-            iconName="FaHeart"
-          />
-          <SavingIcons
-            icon={<FaCar size="35" color="white" />}
-            name="Car"
-            setEmoji={setEmoji}
-            iconName="FaCar"
-          />
-          <SavingIcons
-            icon={<FaHome size="35" color="white" />}
-            name="Home"
-            setEmoji={setEmoji}
-            iconName="FaHome"
-          />
-          <SavingIcons
-            icon={<FaUniversity size="35" color="white" />}
-            name="Uni"
-            setEmoji={setEmoji}
-            iconName="FaUniversity"
-          />
-        </div>
-        <button>Submit</button>
-      </form>
-    </Main>
+    <>
+      <ToastContainer />
+      <Main onSubmit={handleSavings}>
+        <h1>Saving Goals</h1>
+        <form className="saving-form">
+          <div className="saving-title inputs-container">
+            <label>Title</label>
+            <input
+              type="text"
+              placeholder="Provide Details..."
+              value={name}
+              onChange={handleName}
+            />
+          </div>
+          <div className="saving-amount inputs-container">
+            <label>Amount</label>
+            <input
+              type="text"
+              placeholder="Provide Details..."
+              value={amount}
+              onChange={handleAmount}
+            />
+          </div>
+          <div className="saving-icon ">
+            <SavingIcons
+              icon={<FaBook size="35" color="white" />}
+              name="Book"
+              setEmoji={setEmoji}
+              iconName="FaBook"
+            />
+            <SavingIcons
+              icon={<FaHeart size="35" color="white" />}
+              name="Health"
+              setEmoji={setEmoji}
+              iconName="FaHeart"
+            />
+            <SavingIcons
+              icon={<FaCar size="35" color="white" />}
+              name="Car"
+              setEmoji={setEmoji}
+              iconName="FaCar"
+            />
+            <SavingIcons
+              icon={<FaHome size="35" color="white" />}
+              name="Home"
+              setEmoji={setEmoji}
+              iconName="FaHome"
+            />
+            <SavingIcons
+              icon={<FaUniversity size="35" color="white" />}
+              name="Uni"
+              setEmoji={setEmoji}
+              iconName="FaUniversity"
+            />
+          </div>
+          <button>Submit</button>
+        </form>
+      </Main>
+    </>
   );
 };
 

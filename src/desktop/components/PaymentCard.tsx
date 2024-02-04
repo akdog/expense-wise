@@ -1,11 +1,24 @@
+import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { RootState } from "../../state/store";
 
 const PaymentCard = () => {
+  const stateIncome = useSelector((state: RootState) => state.income);
+  const stateTransaction = useSelector(
+    (state: RootState) => state.transaction.transaction
+  );
+
+  const expenseData = stateTransaction.reduce(
+    (total, expense) => total + expense.amount,
+    0
+  );
+  const newIncome = stateIncome.income - expenseData;
+
   return (
     <Main>
       <div className="card-header">
         <h3>Current Balance</h3>
-        <h2>$1.200,00</h2>
+        <h2>${newIncome}</h2>
       </div>
       <div className="card-details">
         <h2>1234 5678 9012 4512</h2>
