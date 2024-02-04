@@ -40,7 +40,35 @@ const Main = styled.div`
 
   border-radius: 20px;
 
-  background: green;
+  background-image: linear-gradient(
+    to right top,
+    #6f6bd1,
+    #7371d5,
+    #7776da,
+    #7c7cde,
+    #8082e2,
+    #7f86e5,
+    #7f89e9,
+    #7e8dec,
+    #788ff0,
+    #7091f4,
+    #6894f7,
+    #5f96fb
+  );
+
+  .card-header {
+    h1 {
+      font-size: 1.3rem;
+      color: white;
+      font-weight: 500;
+    }
+
+    h3 {
+      font-size: 0.8rem;
+      color: white;
+      font-weight: 300;
+    }
+  }
 
   .card-details {
     display: flex;
@@ -48,6 +76,12 @@ const Main = styled.div`
     align-items: center;
 
     width: 100%;
+
+    h2 {
+      color: white;
+      font-weight: 500;
+      font-size: 2rem;
+    }
   }
 
   .card-expire {
@@ -56,6 +90,18 @@ const Main = styled.div`
     align-items: center;
 
     width: 100%;
+
+    h4 {
+      color: white;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    h2 {
+      color: white;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
   }
 `;
 

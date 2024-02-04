@@ -1,25 +1,14 @@
-import { useState } from "react";
-
 import styled from "styled-components";
 
-//Import Icons
-import { FaSearch } from "react-icons/fa";
+import profileIMG from "../../assets/ai-profile.png";
 
 const Header = () => {
-  const [isActive, setIsActive] = useState(false);
-
-  const handleInput = () => {
-    setIsActive(!isActive);
-  };
-
   return (
     <Main>
-      <div className="input-container">
-        <FaSearch onClick={handleInput} size="35" />
-        {isActive && <input type="text" placeholder="Search..." />}
-      </div>
       <div className="user-profile">
-        <h1>Img</h1>
+        <div className="img-container">
+          <img src={profileIMG} />
+        </div>
         <div className="name-container">
           <h2>Asad Khan</h2>
           <h4>Junior Dev</h4>
@@ -30,31 +19,15 @@ const Header = () => {
 };
 
 const Main = styled.div`
-  width: 90%;
-  margin: 0 auto;
+  width: 100%;
+
   height: 10%;
 
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
 
   padding: 1rem;
-
-  .input-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-
-    input {
-      padding: 1rem 0rem;
-      text-indent: 1rem;
-
-      border-radius: 10px;
-      border: none;
-      outline: none;
-    }
-  }
 
   .user-profile {
     display: flex;
@@ -62,10 +35,24 @@ const Main = styled.div`
     align-items: center;
     gap: 1rem;
 
+    .img-container {
+      width: 10%;
+
+      border-radius: 50%;
+
+      background: #d0d0d0;
+
+      img {
+        width: 100%;
+
+        border-radius: 50%;
+      }
+    }
+
     .name-container {
       display: flex;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       flex-direction: column;
     }
   }

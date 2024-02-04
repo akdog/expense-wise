@@ -5,6 +5,7 @@ import { IoHome } from "react-icons/io5";
 import { FaRegUserCircle } from "react-icons/fa";
 import { AiFillMessage } from "react-icons/ai";
 import { IoSettings } from "react-icons/io5";
+import { Link } from "react-router-dom";
 
 const Sidebar = () => {
   return (
@@ -15,20 +16,28 @@ const Sidebar = () => {
       </div>
       <div className="sidebar-menu">
         <div className="sidebar-icon">
-          <IoHome size="35" />
-          <h4>Home</h4>
+          <Link to="/">
+            <IoHome size="35" />
+            <h4>Home</h4>
+          </Link>
         </div>
         <div className="sidebar-icon">
-          <FaRegUserCircle size="35" />
-          <h4>Profile</h4>
+          <Link to="/profile">
+            <FaRegUserCircle size="35" />
+            <h4>Profile</h4>
+          </Link>
         </div>
         <div className="sidebar-icon">
-          <AiFillMessage size="35" />
-          <h4>Messages</h4>
+          <Link to="/transfer">
+            <AiFillMessage size="35" />
+            <h4>Messages</h4>
+          </Link>
         </div>
         <div className="sidebar-icon">
-          <IoSettings size="35" />
-          <h4>Settings</h4>
+          <Link to="/settings">
+            <IoSettings size="35" />
+            <h4>Settings</h4>
+          </Link>
         </div>
       </div>
     </Main>
@@ -45,11 +54,20 @@ const Main = styled.nav`
   height: 100%;
   width: 8%;
 
-  background: linear-gradient(
-    180deg,
-    rgba(1, 39, 145, 1) 0%,
-    rgba(47, 105, 255, 1) 50%,
-    rgba(0, 61, 170, 1) 100%
+  background-image: linear-gradient(
+    to right top,
+    #6f6bd1,
+    #7371d5,
+    #7776da,
+    #7c7cde,
+    #8082e2,
+    #7f86e5,
+    #7f89e9,
+    #7e8dec,
+    #788ff0,
+    #7091f4,
+    #6894f7,
+    #5f96fb
   );
 
   color: white;
@@ -68,11 +86,16 @@ const Main = styled.nav`
     gap: 4rem;
 
     .sidebar-icon {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      gap: 0.5rem;
+      a {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 0.5rem;
+
+        text-decoration: none;
+        color: white;
+      }
     }
   }
 `;

@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
-const UpPayment = () => {
+const SavingGoals = () => {
   return (
     <Main>
       <div className="payment-header">
-        <h2>Upcomming Payments</h2>
+        <h2>Saving Goals</h2>
       </div>
       <div className="payment-main">
         <h2>PayPal</h2>
@@ -16,7 +16,7 @@ const UpPayment = () => {
 };
 
 const Main = styled.div`
-  width: 20%;
+  width: 55%;
   height: 30vh;
 
   display: flex;
@@ -25,31 +25,42 @@ const Main = styled.div`
   flex-direction: column;
 
   .payment-header {
-    text-align: center;
-
     width: 100%;
-
     h2 {
       font-size: 1.4rem;
+      font-weight: 500;
     }
-
     margin-bottom: 1rem;
   }
 
   .payment-main {
-    background: red;
-
+    background-image: linear-gradient(
+      to right top,
+      #6f6bd1,
+      #7371d5,
+      #7776da,
+      #7c7cde,
+      #8082e2,
+      #7f86e5,
+      #7f89e9,
+      #7e8dec,
+      #788ff0,
+      #7091f4,
+      #6894f7,
+      #5f96fb
+    );
     width: 100%;
     height: 100%;
 
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
     gap: 1rem;
+
+    padding: 1rem;
 
     border-radius: 20px;
   }
 `;
 
-export default UpPayment;
+export default SavingGoals;

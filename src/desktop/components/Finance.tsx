@@ -2,8 +2,9 @@ import styled from "styled-components";
 
 //Import Components
 import UserCard from "./UserCard";
-import UpPayment from "./UpPayment";
+import SavingGoals from "./SavingGoals";
 import Transactions from "./Transactions";
+import Budget from "./Budget";
 
 const Finance = () => {
   return (
@@ -13,26 +14,14 @@ const Finance = () => {
         <div className="left-container">
           <div className="top-container">
             <UserCard />
-            <UpPayment />
+            <SavingGoals />
           </div>
           <div className="bottom-container">
             <Transactions />
           </div>
         </div>
         <div className="right-container">
-          <div className="budget-container">
-            <div className="budget-header">
-              <h3>Saved this Month</h3>
-              <h2>$25.381.22</h2>
-            </div>
-            <div className="budget-graph">
-              <h1>GRAPH</h1>
-            </div>
-            <div className="budget-bottom">
-              <h3>Monthly Budget Saved:</h3>
-              <h3>80%</h3>
-            </div>
-          </div>
+          <Budget />
         </div>
       </div>
     </Main>
@@ -75,45 +64,24 @@ const Main = styled.div`
       width: 30%;
       height: 100%;
 
-      background: blue;
+      background-image: linear-gradient(
+        to right top,
+        #6f6bd1,
+        #7371d5,
+        #7776da,
+        #7c7cde,
+        #8082e2,
+        #7f86e5,
+        #7f89e9,
+        #7e8dec,
+        #788ff0,
+        #7091f4,
+        #6894f7,
+        #5f96fb
+      );
       color: white;
 
       padding: 1.5rem;
-
-      .budget-container {
-        width: 100%;
-        height: 100%;
-
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-direction: column;
-        gap: 1rem;
-
-        .budget-header {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-          gap: 1rem;
-
-          width: 100%;
-        }
-
-        .budget-graph {
-          width: 100%;
-          height: 60%;
-        }
-
-        .budget-bottom {
-          width: 100%;
-          height: 15%;
-
-          display: flex;
-          justify-content: space-around;
-          align-items: center;
-        }
-      }
     }
   }
 `;
