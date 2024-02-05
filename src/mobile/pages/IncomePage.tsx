@@ -20,7 +20,7 @@ const IncomePage = () => {
   const navigate = useNavigate();
 
   const handleIncomeValue = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIncome((prevIncome) => Number(e.target.value));
+    setIncome(Number(e.target.value));
   };
 
   useEffect(() => {

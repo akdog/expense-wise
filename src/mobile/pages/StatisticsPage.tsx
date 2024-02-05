@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styled from "styled-components";
 
 //Import Components
@@ -13,9 +14,15 @@ import { RootState } from "../../state/store";
 const StatisticsPage = () => {
   const state = useSelector((state: RootState) => state.transaction);
 
+  const [isAlert, setIsAlert] = useState(false);
+
   return (
     <Main>
-      <PageHeader title="Statistics" />
+      <PageHeader
+        title="Statistics"
+        isAlert={isAlert}
+        setIsAlert={setIsAlert}
+      />
       <StatCategory />
       {state.transaction.length < 0 ? "" : <StatPie />}
       <StatDetails />
