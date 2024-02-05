@@ -8,7 +8,7 @@ const ButtonC = () => {
   return (
     <div className="button-container">
       <FaLongArrowAltRight color="white" size="25" />
-      <Button type="submit" text="Next" />
+      <Button />
     </div>
   );
 };
