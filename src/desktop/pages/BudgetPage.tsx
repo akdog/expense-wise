@@ -17,8 +17,9 @@ const BudgetPage: React.FC = () => {
   const dispatch = useDispatch();
 
   const handleIncomeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setIncome(Number(e.target.value));
-    dispatch(handleIncome(income));
+    const newIncome = Number(e.target.value);
+    setIncome(newIncome);
+    dispatch(handleIncome(newIncome));
   };
 
   const handleSavingPercentageChange = (

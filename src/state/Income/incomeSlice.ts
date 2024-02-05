@@ -1,19 +1,45 @@
 // incomeSlice.ts
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 
+// export type ExpenseCategory = {
+//   id: string;
+//   category: string;
+//   limit: number;
+// }[];
+
+// type IncomeState = {
+//   income: number;
+//   expenseLimit: ExpenseCategory;
+//   monthlyBudget: number;
+// };
+
+// const initialExpenseCategory: ExpenseCategory = [
+//   { id: "1", category: "Eating Out", limit: 0 },
+//   { id: "2", category: "Groceries", limit: 0 },
+//   { id: "3", category: "Games", limit: 0 },
+//   { id: "4", category: "Clothes", limit: 0 },
+//   { id: "5", category: "Education", limit: 0 },
+// ];
+
+// const initialState: IncomeState = {
+//   income: 0,
+//   expenseLimit: initialExpenseCategory,
+//   monthlyBudget: 0,
+// };
+
 export type ExpenseCategory = {
   id: string;
   category: string;
   limit: number;
-}[];
+};
 
 type IncomeState = {
   income: number;
-  expenseLimit: ExpenseCategory;
+  expenseLimit: ExpenseCategory[];
   monthlyBudget: number;
 };
 
-const initialExpenseCategory: ExpenseCategory = [
+const initialExpenseCategory: ExpenseCategory[] = [
   { id: "1", category: "Eating Out", limit: 0 },
   { id: "2", category: "Groceries", limit: 0 },
   { id: "3", category: "Games", limit: 0 },

@@ -9,13 +9,7 @@ type SavingState = {
 };
 
 const initialState: SavingState = {
-  goals: [
-    {
-      name: "",
-      amount: 0,
-      emoji: "",
-    },
-  ],
+  goals: [],
 };
 
 const savingSlice = createSlice({

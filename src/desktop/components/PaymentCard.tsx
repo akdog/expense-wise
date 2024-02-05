@@ -4,21 +4,20 @@ import { RootState } from "../../state/store";
 
 const PaymentCard = () => {
   const stateIncome = useSelector((state: RootState) => state.income);
-  const stateTransaction = useSelector(
-    (state: RootState) => state.transaction.transaction
-  );
+  const stateTransfer = useSelector((state: RootState) => state.transaction);
 
-  const expenseData = stateTransaction.reduce(
-    (total, expense) => total + expense.amount,
+  const expenseData = stateTransfer.transaction.reduce(
+    (item, expense) => item + expense.amount,
     0
   );
-  const newIncome = stateIncome.income - expenseData;
+
+  const newBalance = stateIncome.monthlyBudget - expenseData;
 
   return (
     <Main>
       <div className="card-header">
         <h3>Current Balance</h3>
-        <h2>${newIncome}</h2>
+        <h2>${newBalance}</h2>
       </div>
       <div className="card-details">
         <h2>1234 5678 9012 4512</h2>

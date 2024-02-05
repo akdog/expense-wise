@@ -14,10 +14,29 @@ const TransferForm = () => {
   const [amount, setAmount] = useState(0);
 
   const stateIncome = useSelector((state: RootState) => state.income);
+  const stateTransfer = useSelector((state: RootState) => state.transaction);
+
+  const expenseData = stateTransfer.transaction.reduce(
+    (item, expense) => item + expense.amount,
+    0
+  );
+
+  const newBalance = stateIncome.monthlyBudget - expenseData;
+
   const dispatch = useDispatch();
 
   const handleTransactionSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+
+    const currentDate = new Date();
+
+    const year = currentDate.getFullYear();
+    const month = currentDate.getMonth() + 1;
+    const day = currentDate.getDate();
+
+    const formattedDate = `${year}-${month < 10 ? "0" + month : month}-${
+      day < 10 ? "0" + day : day
+    }`;
 
     if (info === "" && note === "" && amount === 0) {
       return toast.error("You missed some Infos!", {
@@ -30,7 +49,7 @@ const TransferForm = () => {
       });
     }
 
-    if (stateIncome.income === 0) {
+    if (newBalance <= 0) {
       return toast.error("Not enough money", {
         position: "top-center",
         autoClose: 3000,
@@ -41,7 +60,7 @@ const TransferForm = () => {
       });
     }
 
-    dispatch(handleTransaction({ info, note, amount }));
+    dispatch(handleTransaction({ info, note: formattedDate, amount }));
 
     setInfo("");
     setNote("");
@@ -96,7 +115,7 @@ const TransferForm = () => {
             </select>
           </div>
         </div>
-        <h3>Total:</h3>
+        <h3>Total:{amount}</h3>
         <button>Send</button>
       </Main>
     </>

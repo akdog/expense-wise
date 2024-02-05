@@ -4,26 +4,18 @@ export type TransactionState = {
   icon: React.ReactNode;
   iconType: string;
   category: string;
-  transaction: [
-    {
-      info: string;
-      note: string;
-      amount: number;
-    }
-  ];
+  transaction: {
+    info: string;
+    note: string;
+    amount: number;
+  }[];
 };
 
 const initialState: TransactionState = {
   icon: null,
   iconType: "",
   category: "",
-  transaction: [
-    {
-      info: "",
-      note: "",
-      amount: 0,
-    },
-  ],
+  transaction: [],
 };
 
 const transactionSlice = createSlice({

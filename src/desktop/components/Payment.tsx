@@ -33,7 +33,6 @@ const Main = styled.div`
     justify-content: flex-start;
     align-items: center;
     flex-direction: column;
-    gap: 2rem;
 
     border-radius: 20px;
 

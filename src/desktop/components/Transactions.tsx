@@ -16,7 +16,7 @@ const Transactions = () => {
   if (stateTransaction.length <= 1) {
     return (
       <NoTransactions>
-        <h1>No Goals Yet</h1>
+        <h1>No Transactions Yet</h1>
         <Link to="/transfer">Add Transaction</Link>
       </NoTransactions>
     );
