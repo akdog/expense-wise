@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 //Import Icons
 import { FaChartPie } from "react-icons/fa";
@@ -9,8 +9,11 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { IoMdSettings } from "react-icons/io";
 
 const Navbar = () => {
+  const location = useLocation();
+  const currentLocation = location.pathname;
+
   return (
-    <Main>
+    <Main currentLocation={currentLocation}>
       <div className="navbar-icons">
         <Link id="navbar-link" to="/home">
           <FaChartPie size="30" />
@@ -28,9 +31,10 @@ const Navbar = () => {
   );
 };
 
-const Main = styled.div`
+const Main = styled.div<{ currentLocation: string }>`
   position: sticky;
-  bottom: 2%;
+  bottom: ${(props) => (props.currentLocation === "/home" ? "0%" : "2%")};
+  top: ${(props) => (props.currentLocation === "/home" ? "100%" : "0%")};
 
   width: 95%;
   margin: 0 auto;
