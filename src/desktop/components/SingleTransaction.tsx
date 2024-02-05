@@ -12,15 +12,15 @@ type Props = {
 const SingleTransaction = ({ info, note, amount }: Props) => {
   const getIconBasedOnType = (categories: string) => {
     switch (categories.toLowerCase()) {
-      case "fauniversity":
+      case "uni":
         return <FaUniversity size="35" />;
-      case "facar":
+      case "car":
         return <FaCar size="35" />;
-      case "fahome":
+      case "home":
         return <FaHome size="35" />;
-      case "faheart":
+      case "health":
         return <FaHeart size="35" />;
-      case "fabook":
+      case "book":
         return <FaBook size="35" />;
       default:
         return <FaHome size="35" />;
@@ -29,7 +29,7 @@ const SingleTransaction = ({ info, note, amount }: Props) => {
 
   return (
     <Main>
-      <h1>{getIconBasedOnType(note)}</h1>
+      <h1>{getIconBasedOnType(info)}</h1>
       <h3>{info}</h3>
       <h4>{note}</h4>
       <h3>${amount}</h3>

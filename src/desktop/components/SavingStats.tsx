@@ -16,6 +16,17 @@ const SavingStats = () => {
     0
   );
 
+  if (savingAmount <= 0) {
+    return (
+      <NoSaving>
+        <div className="saving-header">
+          <h1>Saving</h1>
+          <h2>No Savings yet</h2>
+        </div>
+      </NoSaving>
+    );
+  }
+
   return (
     <Main>
       <div className="saving-header">
@@ -33,6 +44,32 @@ const SavingStats = () => {
     </Main>
   );
 };
+
+const NoSaving = styled.div`
+  background: linear-gradient(to right, #285495, #7f2c9c);
+
+  width: 35%;
+  height: 40vh;
+  padding: 1rem;
+  border-radius: 20px;
+
+  .saving-header {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    h1 {
+      font-size: 1.5rem;
+      color: white;
+      font-weight: 500;
+    }
+    h2 {
+      color: white;
+    }
+  }
+`;
 
 const Main = styled.div`
   background: linear-gradient(to right, #285495, #7f2c9c);

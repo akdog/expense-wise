@@ -21,6 +21,17 @@ const ExpenseStats = () => {
     0
   );
 
+  if (allExpenses <= 0) {
+    return (
+      <NoExpense>
+        <div className="expense-header">
+          <h1>Expense</h1>
+        </div>
+        <h2>No Expenses Yet</h2>
+      </NoExpense>
+    );
+  }
+
   return (
     <Main>
       <div className="expense-header">
@@ -31,6 +42,31 @@ const ExpenseStats = () => {
     </Main>
   );
 };
+
+const NoExpense = styled.div`
+  background: linear-gradient(to right, #285495, #7f2c9c);
+
+  padding: 0.5rem;
+  height: 30vh;
+  width: 100%;
+  border-radius: 20px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+
+  h2 {
+    color: white;
+  }
+
+  .expense-header {
+    h1 {
+      color: white;
+      font-size: 1.5rem;
+      font-weight: 500;
+    }
+  }
+`;
 
 const Main = styled.div`
   background: linear-gradient(to right, #285495, #7f2c9c);

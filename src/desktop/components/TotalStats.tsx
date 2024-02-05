@@ -12,10 +12,9 @@ const TotalStats = () => {
   const title = stateExpense.transaction.map((item) => item.info);
 
   const incomeData = [
-    { name: title[0], income: stateIncome.income },
-    { name: title[1], income: stateIncome.income - 200 },
-    { name: title[2], income: stateIncome.income + 280 },
-    { name: title[3], income: stateIncome.income + 330 },
+    { name: "Monthly Income", income: stateIncome.income },
+    { name: "Monthly Income", income: stateIncome.income },
+    { name: "Monthly Income", income: stateIncome.income },
   ];
 
   const expenseData = [
@@ -28,6 +27,14 @@ const TotalStats = () => {
     (number, expense) => number + expense.amount,
     0
   );
+
+  if (allExpense === 0) {
+    return (
+      <NoTotal>
+        <h1>You need to do a Transactions to see Statistics</h1>
+      </NoTotal>
+    );
+  }
 
   return (
     <Main>
@@ -42,6 +49,21 @@ const TotalStats = () => {
     </Main>
   );
 };
+
+const NoTotal = styled.div`
+  background: linear-gradient(to right, #285495, #7f2c9c);
+
+  width: 62%;
+  padding: 1rem;
+  height: 40vh;
+  border-radius: 20px;
+
+  h1 {
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 500;
+  }
+`;
 
 const Main = styled.div`
   background: linear-gradient(to right, #285495, #7f2c9c);

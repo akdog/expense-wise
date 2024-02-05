@@ -53,7 +53,7 @@ const StackedGraph = ({ incomeData, expenseData }: Props) => {
           bottom: 0,
         }}
       >
-        <XAxis dataKey="name" />
+        <XAxis />
         <YAxis />
         <Tooltip content={renderCustomTooltip} />
         <Area
@@ -62,7 +62,7 @@ const StackedGraph = ({ incomeData, expenseData }: Props) => {
           stackId="1"
           stroke="#8884d8"
           fill="#8884d8"
-          data={incomeData} // Use income data here
+          data={incomeData}
         />
         <Area
           type="monotone"
@@ -70,7 +70,7 @@ const StackedGraph = ({ incomeData, expenseData }: Props) => {
           stackId="1"
           stroke="#82ca9d"
           fill="#82ca9d"
-          data={expenseData} // Use expense data here
+          data={expenseData}
         />
       </AreaChart>
     </ResponsiveContainer>

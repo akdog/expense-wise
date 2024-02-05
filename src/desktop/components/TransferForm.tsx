@@ -85,7 +85,7 @@ const TransferForm = () => {
   };
 
   const handleNote = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setNote(e.target.value);
+    setNote(e.target.value.toLowerCase());
   };
 
   return (
@@ -112,6 +112,9 @@ const TransferForm = () => {
             <select value={note} onChange={handleNote}>
               <option value="FaHome">Home</option>
               <option value="FaBook">Books</option>
+              <option value="FaHeart">Health</option>
+              <option value="FaCar">Car</option>
+              <option value="FaUniversity">Uni</option>
             </select>
           </div>
         </div>
@@ -202,10 +205,11 @@ const Main = styled.form`
       width: 100%;
       height: 100%;
 
-      input {
-        padding: 0.6rem 0rem;
+      select {
+        width: 100%;
+        padding: 0.6rem;
+
         border-radius: 10px;
-        border: none;
       }
     }
   }
