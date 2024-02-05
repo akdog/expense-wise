@@ -1,4 +1,3 @@
-import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 type Props = {
@@ -7,21 +6,8 @@ type Props = {
   type: string;
 };
 
-const Button = ({ text, pageNumber, type }: Props) => {
-  const navigate = useNavigate();
-
-  const handleNavigate = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault();
-
-    const nextPage = `/${pageNumber + 1}`;
-    navigate(nextPage);
-  };
-
-  return (
-    <ButtonStyled type={type} onClick={handleNavigate}>
-      {text}
-    </ButtonStyled>
-  );
+const Button = ({ text, type }: Props) => {
+  return <ButtonStyled type={type}>{text}</ButtonStyled>;
 };
 
 const ButtonStyled = styled.button`

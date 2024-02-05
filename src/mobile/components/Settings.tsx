@@ -6,11 +6,11 @@ import { motion } from "framer-motion";
 import { SlCalender } from "react-icons/sl";
 
 const Settings = () => {
-  const [startingOn, setStartingOn] = useState<boolean>(false);
+  // const [startingOn, setStartingOn] = useState<boolean>(false);
   const [includePayments, setIncludePayments] = useState<boolean>(false);
   const [receiveAlerts, setReceiveAlerts] = useState<boolean>(false);
 
-  const toggleStartingOn = () => setStartingOn(!startingOn);
+  // const toggleStartingOn = () => setStartingOn(!startingOn);
   const toggleIncludePayments = () => setIncludePayments(!includePayments);
   const toggleReceiveAlerts = () => setReceiveAlerts(!receiveAlerts);
 

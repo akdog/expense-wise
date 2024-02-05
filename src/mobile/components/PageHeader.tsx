@@ -61,8 +61,10 @@ const PageHeader = ({
   };
 
   const handleAlert = () => {
-    setIsAlert(!isAlert);
-    notify();
+    if (isAlert !== undefined) {
+      setIsAlert(!isAlert);
+      notify();
+    }
   };
 
   return (

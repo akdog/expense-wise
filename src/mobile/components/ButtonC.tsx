@@ -4,15 +4,11 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 //Import Components
 import Button from "./Button";
 
-type Props = {
-  pageNumberAsNumber: number;
-};
-
-const ButtonC = ({ pageNumberAsNumber }: Props) => {
+const ButtonC = () => {
   return (
     <div className="button-container">
       <FaLongArrowAltRight color="white" size="25" />
-      <Button type="submit" text="Next" pageNumber={pageNumberAsNumber} />
+      <Button type="submit" text="Next" />
     </div>
   );
 };
