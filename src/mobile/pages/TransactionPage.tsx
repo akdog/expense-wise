@@ -50,8 +50,6 @@ const TransactionPage = () => {
     }
   };
 
-  console.log(alertType);
-
   return (
     <Main onSubmit={handleSubmit}>
       <TransactionAlert />

@@ -10,7 +10,7 @@ const StatDetails = () => {
 
   return (
     <Main>
-      {state.transaction.length <= 1 ? (
+      {state.transaction.length <= 0 ? (
         <h1>No Transactions</h1>
       ) : (
         <>

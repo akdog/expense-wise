@@ -1,20 +1,20 @@
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 //Import Components
-import ButtonC from "../components/ButtonC";
 import Header from "../components/Header";
 import Text from "../components/Text";
 import LimitCategory from "../components/LimitCategory";
 
-//Import Redux
+//Import Icons
+import { FaLongArrowAltRight } from "react-icons/fa";
 
-type Props = {
-  pageNumberAsNumber: number;
-};
+const CategoryPage = () => {
+  const navigate = useNavigate();
 
-const CategoryPage = ({ pageNumberAsNumber }: Props) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    navigate("/budget");
   };
 
   return (
@@ -25,10 +25,23 @@ const CategoryPage = ({ pageNumberAsNumber }: Props) => {
         text="We selected your top-5 expense categories last month. You can limit more categories"
       />
       <LimitCategory />
-      <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
+      <div className="button-container">
+        <FaLongArrowAltRight color="white" size="25" />
+        <ButtonStyled type="submit">Next</ButtonStyled>
+      </div>
     </Main>
   );
 };
+
+const ButtonStyled = styled.button`
+  width: 100%;
+  padding: 1rem 0rem;
+  border-radius: 10px;
+  border: none;
+  background: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 1.3rem;
+`;
 
 const Main = styled.form`
   display: flex;

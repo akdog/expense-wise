@@ -1,24 +1,24 @@
+import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import styled from "styled-components";
 import Header from "../components/Header";
 import Text from "../components/Text";
-import ButtonC from "../components/ButtonC";
+
+//Import Icons
+import { FaLongArrowAltRight } from "react-icons/fa";
 
 //Import Redux
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../state/store";
 import { handleBudget } from "../../state/Income/incomeSlice";
 
-type Props = {
-  pageNumberAsNumber: number;
-};
-
-const BudgetPage = ({ pageNumberAsNumber }: Props) => {
+const BudgetPage = () => {
   const income = useSelector((state: RootState) => state.income.income);
   const [budgetPercentage, setBudgetPercentage] = useState<number>(50);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleBudgetChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setBudgetPercentage(Number(e.target.value));
@@ -28,6 +28,10 @@ const BudgetPage = ({ pageNumberAsNumber }: Props) => {
     const calculatedBudget = (income * budgetPercentage) / 100;
     dispatch(handleBudget(calculatedBudget));
   }, [dispatch, income, budgetPercentage]);
+
+  const handleNavigate = () => {
+    navigate("/create-budget");
+  };
 
   return (
     <Main>
@@ -55,10 +59,25 @@ const BudgetPage = ({ pageNumberAsNumber }: Props) => {
         />
         <p>{`${budgetPercentage}% of your income`}</p>
       </div>
-      <ButtonC pageNumberAsNumber={pageNumberAsNumber} />
+      <div className="button-container">
+        <FaLongArrowAltRight color="white" size="25" />
+        <ButtonStyled type="submit" onClick={handleNavigate}>
+          Next
+        </ButtonStyled>
+      </div>
     </Main>
   );
 };
+
+const ButtonStyled = styled.button`
+  width: 100%;
+  padding: 1rem 0rem;
+  border-radius: 10px;
+  border: none;
+  background: ${(props) => props.theme.colors.primary};
+  color: ${(props) => props.theme.colors.white};
+  font-size: 1.3rem;
+`;
 
 const Main = styled.div`
   display: flex;

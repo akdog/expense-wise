@@ -30,7 +30,7 @@ const HomeSavings = () => {
           <FaPlus size="35" />
         </Link>
       </div>
-      {state.goals.length >= 2 ? (
+      {state.goals.length >= 0 ? (
         state.goals.map((item) => (
           <SavedSavings name={item.name} amount={item.amount} />
         ))
