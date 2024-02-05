@@ -1,13 +1,7 @@
 import styled from "styled-components";
 
-type Props = {
-  text: string;
-  pageNumber?: number;
-  type: string;
-};
-
-const Button = ({ text, type }: Props) => {
-  return <ButtonStyled type={type}>{text}</ButtonStyled>;
+const Button = () => {
+  return <ButtonStyled>text</ButtonStyled>;
 };
 
 const ButtonStyled = styled.button`
