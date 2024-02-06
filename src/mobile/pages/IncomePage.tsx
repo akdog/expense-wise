@@ -126,14 +126,14 @@ const Main = styled.form`
       font-weight: 500;
 
       top: 11%;
-      left: 8%;
+      left: 15%;
     }
 
     input {
       font-size: 2rem;
       width: 100%;
 
-      text-indent: 1.5rem;
+      text-indent: 30%;
 
       border: none;
       outline: none;

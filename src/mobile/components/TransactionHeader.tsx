@@ -70,7 +70,7 @@ const Main = styled.div`
     outline: none;
     background: none;
 
-    text-indent: 25%;
+    text-indent: 38%;
   }
 
   h2 {

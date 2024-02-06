@@ -1,6 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { motion } from "framer-motion";
 
 //Import Redux
@@ -32,7 +33,7 @@ const SetGoal = () => {
     setEmoji("");
   };
 
-  const notify = () => toast("Goal Saved!");
+  const notify = () => toast.success("Goal Saved!");
 
   const handleName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
@@ -55,14 +56,12 @@ const SetGoal = () => {
     <Main
       onSubmit={(e: React.FormEvent) =>
         handleSubmit(e, name, goalAmount, emoji)
-      }
-    >
+      }>
       <ToastContainer />
       <motion.div
         className="name-input inputs"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
+        animate={{ opacity: 1, y: 0 }}>
         <label>Name</label>
         <motion.input
           type="text"
@@ -76,8 +75,7 @@ const SetGoal = () => {
       <motion.div
         className="amount-input inputs"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
+        animate={{ opacity: 1, y: 0 }}>
         <label>Amount in $</label>
         <motion.input
           type="number"
@@ -91,8 +89,7 @@ const SetGoal = () => {
       <motion.div
         className="emoji-input"
         initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-      >
+        animate={{ opacity: 1, y: 0 }}>
         <label>Emoji</label>
         <motion.input
           type="text"
@@ -107,8 +104,7 @@ const SetGoal = () => {
         onClick={notify}
         type="submit"
         whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-      >
+        whileTap={{ scale: 0.95 }}>
         Set Goal
       </motion.button>
     </Main>

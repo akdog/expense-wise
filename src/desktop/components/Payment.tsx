@@ -40,7 +40,11 @@ const Main = styled.div`
     margin: 0 auto;
     height: 65%;
 
-    background: linear-gradient(to right, #285495, #7f2c9c);
+    background: #f5f5f5;
+
+    -webkit-box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+    -moz-box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+    box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
   }
 `;
 

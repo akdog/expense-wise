@@ -27,8 +27,7 @@ const TransactionModal = ({ isModal, setIsModal }: Props) => {
         <ModalContainer
           initial={{ opacity: 0, y: 100 }}
           animate={{ opacity: 1, y: 0 }}
-          exit={{ opacity: 0, y: 100 }}
-        >
+          exit={{ opacity: 0, y: 100 }}>
           <div className="modal-header">
             <h3>Select Category</h3>
             <h4 onClick={handleModal}>Cancel</h4>
@@ -112,7 +111,7 @@ const ModalContainer = styled(motion.div)`
   gap: 2rem;
 
   width: 100%;
-  height: 40%;
+  height: 30%;
 
   box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
   border-radius: 10px 10px 0px 0px;

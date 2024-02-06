@@ -143,12 +143,12 @@ const Main = styled.div`
     .number-input {
       position: relative;
 
-      width: 30%;
+      width: 40%;
 
       h1 {
         position: absolute;
         bottom: 0%;
-        left: 5%;
+        left: 2%;
       }
     }
 

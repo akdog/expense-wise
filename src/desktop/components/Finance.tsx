@@ -66,9 +66,12 @@ const Main = styled.div`
 
       border-radius: 20px;
 
-      background: linear-gradient(to bottom, #285495, #7f2c9c);
+      background: #ededed;
 
-      color: white;
+      -webkit-box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+      -moz-box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+      box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+      color: black;
 
       padding: 1.5rem;
     }

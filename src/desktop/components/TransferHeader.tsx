@@ -25,7 +25,7 @@ const Main = styled.div`
 
   h1 {
     font-size: 1.8rem;
-    color: white;
+    color: black;
     font-weight: 500;
   }
 
@@ -39,7 +39,7 @@ const Main = styled.div`
 
     h3 {
       font-size: 1.4rem;
-      color: white;
+      color: black;
       font-weight: 500;
     }
   }

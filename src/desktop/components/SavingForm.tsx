@@ -82,31 +82,31 @@ const SavingForm = () => {
           </div>
           <div className="saving-icon ">
             <SavingIcons
-              icon={<FaBook size="35" color="white" />}
+              icon={<FaBook size="35" color="black" />}
               name="Book"
               setEmoji={setEmoji}
               iconName="FaBook"
             />
             <SavingIcons
-              icon={<FaHeart size="35" color="white" />}
+              icon={<FaHeart size="35" color="black" />}
               name="Health"
               setEmoji={setEmoji}
               iconName="FaHeart"
             />
             <SavingIcons
-              icon={<FaCar size="35" color="white" />}
+              icon={<FaCar size="35" color="black" />}
               name="Car"
               setEmoji={setEmoji}
               iconName="FaCar"
             />
             <SavingIcons
-              icon={<FaHome size="35" color="white" />}
+              icon={<FaHome size="35" color="black" />}
               name="Home"
               setEmoji={setEmoji}
               iconName="FaHome"
             />
             <SavingIcons
-              icon={<FaUniversity size="35" color="white" />}
+              icon={<FaUniversity size="35" color="black" />}
               name="Uni"
               setEmoji={setEmoji}
               iconName="FaUniversity"
@@ -145,8 +145,13 @@ const Main = styled.div`
     align-items: center;
     flex-direction: column;
 
-    background: linear-gradient(to right, #285495, #7f2c9c);
+    background: #f5f5f5;
 
+    -webkit-box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+    -moz-box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+    box-shadow: 10px 10px 4px 0px rgba(199, 199, 199, 1);
+
+    color: black;
     border-radius: 20px;
 
     width: 80%;
@@ -172,7 +177,7 @@ const Main = styled.div`
       }
 
       label {
-        color: white;
+        color: black;
         font-weight: 500;
       }
     }
@@ -196,7 +201,7 @@ const Main = styled.div`
         cursor: pointer;
 
         h3 {
-          color: white;
+          color: black;
           font-weight: 500;
         }
       }

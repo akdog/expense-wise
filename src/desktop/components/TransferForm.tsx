@@ -138,7 +138,7 @@ const Main = styled.form`
 
   label {
     font-size: 1rem;
-    color: white;
+    color: black;
   }
 
   .pay-to-transfer {
@@ -165,7 +165,7 @@ const Main = styled.form`
 
       width: 100%;
 
-      color: white;
+      color: black;
     }
   }
 
@@ -214,7 +214,7 @@ const Main = styled.form`
     }
   }
   h3 {
-    color: white;
+    color: black;
     font-size: 1.2rem;
     font-weight: 500;
     margin-bottom: 0.5rem;
